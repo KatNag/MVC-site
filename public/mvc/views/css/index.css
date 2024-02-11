@@ -14,6 +14,7 @@ h2.section-title {
     font-size: 24px;
     text-align: center;
     padding: 10px;
+    user-select: none;
 }
 
 .header-container {
@@ -23,6 +24,7 @@ h2.section-title {
     right: 0;
     z-index: 50;
     background-color: #fff;
+    user-select: none;
 }
 
 .header-content {
@@ -30,6 +32,7 @@ h2.section-title {
     align-items: center;
     justify-content: space-between;
     padding: 1em;
+    user-select: none;
 }
 
 .logo-button,
@@ -73,6 +76,7 @@ h2.section-title {
     font-size: 24px;
     font-weight: bold;
     margin-left: 10px;
+    user-select: none;
 }
 
 .header-links {
@@ -86,12 +90,14 @@ h2.section-title {
     font-size: 24px;
     margin-left: 20px;
     color: #333;
+    user-select: none;
 }
 
 .header-icons {
     display: flex;
     align-items: center;
     margin-right: 20px;
+    user-select: none;
 }
 
 .rounded {
@@ -110,6 +116,7 @@ h2.section-title {
     align-items: center;
     text-align: center;
     max-width: 100%;
+    user-select: none;
 }
 
 .company-description {
@@ -119,6 +126,7 @@ h2.section-title {
     padding: 20px;
     background: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
+    user-select: none;
 }
 
 /*счетчик чисел*/
@@ -130,8 +138,7 @@ body {
     color: #fff;
 }
 
-header,
-footer {
+header {
     padding: 200px 0;
     background: #222;
 }
@@ -152,6 +159,7 @@ article {
     background: #114461;
     padding: 50px;
     color: #3d3d3d;
+    user-select: none;
 }
 
 .bl {
@@ -160,6 +168,7 @@ article {
     margin: 10px 15px;
     background: #ffffff;
     padding: 45px 10px;
+    user-select: none;
 }
 
 .mid {
@@ -186,9 +195,7 @@ article {
 .clearfix:before,
 .clearfix:after {
     content: " ";
-    /* 1 */
     display: table;
-    /* 2 */
 }
 
 .clearfix:after {
@@ -243,7 +250,6 @@ article {
 .button-zone {
     text-align: center;
     margin-top: 80px;
-    background-color: #114461;
     padding: 40vh;
     background: url('../../../images/photos/wantThis.png') center/cover no-repeat;
 }
@@ -260,10 +266,12 @@ article {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.8s ease;
+    user-select: none;
 }
 
 .big-button:hover {
     background-color: #89e569;
+    user-select: none;
 }
 
 /* Подвал */

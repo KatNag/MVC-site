@@ -34,9 +34,14 @@
                     <img alt="Корзина" class="icon-image" src="<?= BASE_URL ?>images/icons/shoppingCart.png">
                 </button>
 
-                <button class="icon-button rounded">
+                <a href="<?= BASE_URL ?>mvc/views/registration.php" class="icon-button rounded">
                     <img alt="Личный кабинет" class="icon-image" src="<?= BASE_URL ?>images/icons/user.png">
-                </button>
+                </a>
+
+                <!--                <button class="icon-button rounded">-->
+                <!--                    <img alt="Личный кабинет" class="icon-image" src="-->
+                <?php //= BASE_URL ?><!--images/icons/user.png">-->
+                <!--                </button>-->
             </div>
         </div>
     </div>

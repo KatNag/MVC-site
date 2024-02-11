@@ -13,9 +13,10 @@
         <div class="social-icons">
             <a class="social-icon" href="https://vk.com/" title="VK"><img alt="VK"
                                                                           src="<?= BASE_URL ?>images/logos/vkLogo.png"></a>
-            <a class="social-icon" href="#" title="TG"><img alt="Telegram" src="<?= BASE_URL ?>images/logos/tgLogo.png"></a>
-            <a class="social-icon" href="#" title="Rutube"><img alt="Rutube"
-                                                                src="<?= BASE_URL ?>images/logos/ruLogo.png"></a>
+            <a class="social-icon" href="https://web.telegram.org/" title="TG"><img alt="Telegram"
+                                                                                    src="<?= BASE_URL ?>images/logos/tgLogo.png"></a>
+            <a class="social-icon" href="https://rutube.ru/feeds/movies/" title="Rutube"><img alt="Rutube"
+                                                                                              src="<?= BASE_URL ?>images/logos/ruLogo.png"></a>
         </div>
         <div class="contact-info">
             <p>Телефон: +7 (999) 100-11-22</p>
