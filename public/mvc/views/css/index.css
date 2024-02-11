@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #000000;
-    font-family: "Comic Sans MS";
+    font-family: "Comic Sans MS", serif;
     overflow: auto;
 }
 
@@ -98,18 +98,11 @@ h2.section-title {
     border-radius: 50%;
 }
 
-/* Media Query для показа блока на мобильных устройствах */
-@media (max-width: 768px) {
-    .header-container {
-        display: block;
-    }
-}
-
 /*О компании*/
 .hero-section {
     position: relative;
     height: 100vh;
-    background: url('images/photos/mainPhoto.jpg') center/cover no-repeat;
+    background: url('../../../images/photos/mainPhoto.jpg') center/cover no-repeat;
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -238,11 +231,12 @@ article {
     width: 80%;
     max-width: 1500px;
     margin: 0 auto;
-    height: 400px;
+    height: 50vh;
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
     background-color: #de582e;
+    pointer-events: none;
 }
 
 /*Купить*/
@@ -251,7 +245,7 @@ article {
     margin-top: 80px;
     background-color: #114461;
     padding: 40vh;
-    background: url('images/photos/wantThis.png') center/cover no-repeat;
+    background: url('../../../images/photos/wantThis.png') center/cover no-repeat;
 }
 
 .big-button {
@@ -281,7 +275,7 @@ article {
 
 .footer-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -297,11 +291,18 @@ article {
     border-radius: 50%;
     background-color: #fff;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     color: #333;
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%;
 }
 
 .social-icon:hover {
@@ -310,6 +311,18 @@ article {
 }
 
 .contact-info {
-    text-align: center; /* Изменено на центрирование */
-    margin-top: 10px; /* Добавлен отступ сверху */
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
+/* Media*/
+@media (max-width: 768px) {
+    .header-container {
+        display: block;
+    }
+
+    .contact-info {
+        margin-left: 0;
+    }
 }
