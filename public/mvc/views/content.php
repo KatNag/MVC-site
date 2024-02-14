@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <title></title>
 
-    <?php include 'php/config.php'; ?>
-
     <link href="<?= BASE_URL ?>mvc/views/css/index.css" rel="stylesheet">
     <script src="<?= BASE_URL ?>mvc/vendor/jquery.js"></script>
     <script src="<?= BASE_URL ?>mvc/views/js/counter.js"></script>

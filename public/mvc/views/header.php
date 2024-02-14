@@ -6,7 +6,6 @@
     <title>Title</title>
     <link href="css/index.css" rel="stylesheet">
 
-    <?php include 'php/config.php'; ?>
 </head>
 
 <body>

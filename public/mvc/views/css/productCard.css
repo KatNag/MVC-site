@@ -1,0 +1,164 @@
+body {
+    font-family: 'Comic Sans MS';
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+.product-container {
+    display: flex;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px auto;
+    max-height: 220px;
+    max-width: 800px;
+}
+
+.product-image {
+    flex: none;
+    width: 40%;
+    position: relative;
+}
+
+.image {
+    max-width: 100%;
+    max-height: 100%;
+    padding-left: 20px;
+    object-fit: contain;
+}
+
+.product-details {
+    flex: auto;
+    padding: 0.3rem;
+    padding-right: 1.5rem;
+}
+
+.product-info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.product-title {
+    flex: 1;
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #e44d26;
+    margin-top: 0.5rem;
+}
+
+.availability {
+    font-size: 1rem;
+    color: #6b7280;
+    margin-top: 0.5rem;
+}
+
+/**/
+.size-selector {
+    display: flex;
+    align-items: center;
+    margin-right: 1.4rem;
+}
+
+.size-selector input[type="radio"] {
+    display: none;
+}
+
+.size-selector label {
+    position: relative;
+    cursor: pointer;
+    /*! margin-left: 0.5rem; */
+    font-size: 0.9rem;
+}
+
+.size-selector label::before {
+    content: '';
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    width: 32px;
+    height: 32px;
+    border: 2px solid #e2e8f0;
+    background-color: #fff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    margin-right: 6px;
+}
+
+.size-selector input[type="radio"]:checked + label::before {
+    background-color: #e44d26;
+    border-color: #e44d26;
+    color: #fff;
+}
+
+.size-selector input[type="radio"]:checked + label {
+    color: #e44d26;
+}
+
+.size-options {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.add-to-bag {
+    border: 1px solid #e44d26;
+    color: #e44d26;
+    background-color: transparent;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.add-to-bag:hover {
+    background-color: #2824a1;
+    color: #fff;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    align-items: center;
+}
+
+.buttons button {
+    height: 3rem;
+    padding: 0 1.5rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/*.like-button {*/
+/*    flex: none;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    width: 3rem;*/
+/*    height: 3rem;*/
+/*    border: 1px solid #e2e8f0;*/
+/*    border-radius: 0.5rem;*/
+/*    color: #6b7280;*/
+/*    cursor: pointer;*/
+/*    transition: color 0.3s ease;*/
+/*}*/
+
+/*.like-button:hover {*/
+/*    color: #e44d26;*/
+/*}*/
+
+.brand-name {
+    font-size: 1rem;
+    color: #6b7280;
+    margin-top: 0.5rem;
+}

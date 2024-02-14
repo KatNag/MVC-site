@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <?php include '../../php/config.php'; ?>
+
     <link href="<?= BASE_URL ?>mvc/views/css/access.css" rel="stylesheet">
     <script src="<?= BASE_URL ?>mvc/vendor/jquery.js"></script>
     <script src="<?= BASE_URL ?>mvc/views/js/validationInput.js"></script>
@@ -53,6 +54,7 @@
             </div>
             <div class="error-message" id="gender-error"></div>
 
+            <label for="confirm-password">Пароль</label>
             <div class="password-container">
                 <input type="password" name="password" id="password" placeholder="••••••••" required minlength="8">
                 <button type="button" class="toggle-password-button">🔒</button>

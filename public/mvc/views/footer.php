@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="css/index.css" rel="stylesheet">
+    <link href="<?= BASE_URL ?>mvc/views/css/index.css" rel="stylesheet">
 </head>
 
 <body>
