@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <?php include '../../php/config.php'; ?>
     <link href="<?= BASE_URL ?>mvc/views/css/productCard.css" rel="stylesheet">
     <script src="<?= BASE_URL ?>mvc/vendor/jquery.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
@@ -28,24 +27,28 @@
         <p class="brand-name">Noname</p>
         <div class="size-options">
             <div class="size-selector">
-                <input checked id="size-xs" name="size" type="radio" value="xs"/>
-                <label for="size-xs">36</label>
+                <input checked id="size-36" name="size" type="radio" value="xs"/>
+                <label for="size-36">36</label>
             </div>
             <div class="size-selector">
-                <input id="size-s" name="size" type="radio" value="s"/>
-                <label for="size-s">37</label>
+                <input id="size-37" name="size" type="radio" value="s"/>
+                <label for="size-37">37</label>
             </div>
             <div class="size-selector">
-                <input id="size-m" name="size" type="radio" value="m"/>
-                <label for="size-m">38</label>
+                <input id="size-38" name="size" type="radio" value="m"/>
+                <label for="size-38">38</label>
             </div>
             <div class="size-selector">
-                <input id="size-l" name="size" type="radio" value="l"/>
-                <label for="size-l">39</label>
+                <input id="size-39" name="size" type="radio" value="l"/>
+                <label for="size-39">39</label>
             </div>
             <div class="size-selector">
-                <input id="size-xl" name="size" type="radio" value="xl"/>
-                <label for="size-xl">40</label>
+                <input id="size-40" name="size" type="radio" value="xl"/>
+                <label for="size-40">40</label>
+            </div>
+            <div class="size-selector">
+                <input id="size-41" name="size" type="radio" value="xl"/>
+                <label for="size-41">41</label>
             </div>
         </div>
 

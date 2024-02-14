@@ -19,10 +19,9 @@
                                                                                               src="<?= BASE_URL ?>images/logos/ruLogo.png"></a>
         </div>
         <div class="contact-info">
-            <p>Телефон: +7 (999) 100-11-22</p>
-            <p>Email: CrossWorld@example.com</p>
-            <p>Адрес: Не дом и не улица мой адрес -
-                WWW.CrossWorld.ru</p>
+            <p>Телефон: <a href="tel:+79991001122">+7 (999) 100-11-22</a></p>
+            <p>Email: <a href="mailto:CrossWorld@example.com">CrossWorld@example.com</a></p>
+            <p>Адрес: <a href="http://www.vk.com">Не дом и не улица мой адрес - WWW.CrossWorld.ru</a></p>
         </div>
     </div>
 </div>

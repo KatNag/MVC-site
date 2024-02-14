@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <?php include '../../php/config.php'; ?>
-
+    <link rel="icon" type="image/png" href="<?= BASE_URL ?>images/logos/mainLogo.png">
+    
     <link href="<?= BASE_URL ?>mvc/views/css/access.css" rel="stylesheet">
     <script src="<?= BASE_URL ?>mvc/vendor/jquery.js"></script>
     <script src="<?= BASE_URL ?>mvc/views/js/validationInput.js"></script>

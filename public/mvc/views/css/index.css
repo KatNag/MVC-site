@@ -10,6 +10,10 @@ body {
     clear: both;
 }
 
+a {
+    text-decoration: none;
+}
+
 h2.section-title {
     font-size: 24px;
     text-align: center;

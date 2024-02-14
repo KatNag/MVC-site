@@ -11,13 +11,13 @@
 <body>
 <div class="header-container">
     <div class="header-content">
-        <button class="logo-button">
+        <a href="<?= BASE_URL ?>index.php" class="logo-button">
             <img alt="" class="logo-image" src="<?= BASE_URL ?>images/logos/mainLogo.png">
             <div class="header-title-links">
                 <h1 class="header-title">CrossWorld</h1>
             </div>
-        </button>
-        <a class="header-link" href="#">Каталог</a>
+        </a>
+        <a class="header-link" href="<?= BASE_URL ?>catalogue.php">Каталог</a>
         <div class="header-links">
             <div class="header-icons">
 
