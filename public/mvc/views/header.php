@@ -24,10 +24,11 @@
                 <button class="icon-button">
                     <img alt="Поиск" class="icon-image" src="<?= BASE_URL ?>images/icons/search.png">
                 </button>
-
-                <button class="icon-button">
-                    <img alt="Избранное" class="icon-image" src="<?= BASE_URL ?>images/icons/favourite.png">
-                </button>
+                <!---->
+                <!--                <button class="icon-button">-->
+                <!--                    <img alt="Избранное" class="icon-image" src="-->
+                <!--                --><?php //= BASE_URL ?><!--images/icons/favourite.png">-->
+                <!--                </button>-->
 
                 <button class="icon-button">
                     <img alt="Корзина" class="icon-image" src="<?= BASE_URL ?>images/icons/shoppingCart.png">

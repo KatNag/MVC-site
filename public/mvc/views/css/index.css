@@ -121,6 +121,7 @@ h2.section-title {
     text-align: center;
     max-width: 100%;
     user-select: none;
+    margin-top: 120px;
 }
 
 .company-description {
@@ -164,6 +165,8 @@ article {
     padding: 50px;
     color: #3d3d3d;
     user-select: none;
+    justify-items: center;
+    align-items: center;
 }
 
 .bl {
@@ -173,6 +176,7 @@ article {
     background: #ffffff;
     padding: 45px 10px;
     user-select: none;
+    justify-items: center;
 }
 
 .mid {
@@ -209,7 +213,7 @@ article {
 /*Галерея*/
 .photos {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     justify-items: center;
     flex-wrap: wrap;
@@ -219,8 +223,8 @@ article {
 }
 
 .photos .photo_element {
-    width: 500px;
-    box-sizing: border-box;
+    width: 30%;
+    box-siing: border-box;
     padding: 10px;
     position: relative;
     cursor: pointer;
@@ -247,20 +251,23 @@ article {
     border-radius: 8px;
     overflow: hidden;
     background-color: #de582e;
-    pointer-events: none;
 }
 
 /*Купить*/
 .button-zone {
     text-align: center;
     margin-top: 80px;
-    padding: 40vh;
     background: url('../../../images/photos/wantThis.png') center/cover no-repeat;
+    max-width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .big-button {
     display: inline-block;
-    padding: 50px 100px;
+    padding: 40px 40px;
     font-size: 18px;
     font-weight: bold;
     text-align: center;
@@ -277,6 +284,7 @@ article {
     background-color: #89e569;
     user-select: none;
 }
+
 
 /* Подвал */
 .footer {
@@ -329,12 +337,49 @@ article {
 }
 
 /* Media*/
+@media (max-width: 1080px) {
+    article {
+        padding: 20px;
+    }
+
+    .mid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: stretch;
+    }
+
+    .bl {
+        width: calc(50% - 20px);
+        margin: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+    }
+}
+
 @media (max-width: 768px) {
     .header-container {
         display: block;
     }
 
+    .hero-section {
+        margin-top: 60px;
+    }
+
     .contact-info {
         margin-left: 0;
+    }
+
+    .photos .photo_element {
+        width: 90%;
+    }
+
+    /**/
+    .header-title-links {
+        display: none;
+    }
+
+    img.logo-image {
+        width: 60px;
     }
 }

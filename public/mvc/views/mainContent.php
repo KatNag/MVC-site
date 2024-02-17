@@ -35,10 +35,6 @@
                 <div class='text'>года на рынке</div>
             </div>
             <div class='bl'>
-                <div class='number' data-num='1'>0</div>
-                <div class='text'>год гарантии</div>
-            </div>
-            <div class='bl'>
                 <div class='number' data-num='25'>0</div>
                 <div class='text'>сотрудников</div>
             </div>
