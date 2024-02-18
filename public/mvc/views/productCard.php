@@ -9,6 +9,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <title>Product Details</title>
 </head>
 
@@ -54,7 +56,9 @@
 
         <div class="actions">
             <div class="buttons">
-                <button class="add-to-bag" type="button">Add to bag</button>
+                <button class="add-to-bag" type="button" title="Добавить в корзину">
+                    <i class="fas fa-shopping-cart"></i>
+                </button>
             </div>
         </div>
     </form>

@@ -20,6 +20,7 @@ body {
     flex: none;
     width: 40%;
     position: relative;
+    cursor: pointer;
 }
 
 .image {
@@ -29,24 +30,31 @@ body {
     object-fit: contain;
 }
 
+img.image {
+    user-select: none;
+}
+
 .product-details {
     flex: auto;
-    padding: 0.3rem;
     padding-right: 1.5rem;
+    width: 60%;
 }
 
 .product-info {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .product-title {
-    flex: 1;
     font-size: 22px;
     font-weight: bold;
     color: #333;
     margin-bottom: 0.5rem;
+    text-align: left;
+    overflow: hidden;
 }
 
 .product-price {
@@ -54,6 +62,10 @@ body {
     font-weight: bold;
     color: #e44d26;
     margin-top: 0.5rem;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    user-select: none;
 }
 
 .availability {
@@ -67,6 +79,7 @@ body {
     display: flex;
     align-items: center;
     margin-right: 1.4rem;
+    user-select: none;
 }
 
 .size-selector input[type="radio"] {
@@ -76,8 +89,8 @@ body {
 .size-selector label {
     position: relative;
     cursor: pointer;
-    /*! margin-left: 0.5rem; */
     font-size: 0.9rem;
+    color: #114461;
 }
 
 .size-selector label::before {
@@ -105,17 +118,39 @@ body {
 
 .size-options {
     display: flex;
-    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    scrollbar-width: thin;
+    scrollbar-color: #d6816f #86a6b6;
+
+    &::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #e44d26;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #f0f0f0;
+    }
 }
 
 .add-to-bag {
     border: 1px solid #e44d26;
-    color: #e44d26;
     background-color: transparent;
     padding: 1rem 2rem;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-bag i {
+    margin-right: 0.2rem;
 }
 
 .add-to-bag:hover {
@@ -125,13 +160,15 @@ body {
 
 .actions {
     display: flex;
-    justify-content: space-between;
-    margin-top: 1.5rem;
+    margin-top: 1.2rem;
     align-items: center;
+    margin-bottom: 5px;
+    justify-content: flex-end;
 }
 
 .buttons button {
     height: 3rem;
+    margin-right: 0.2rem;
     padding: 0 1.5rem;
     font-weight: bold;
     border-radius: 0.5rem;
@@ -161,4 +198,31 @@ body {
     font-size: 1rem;
     color: #6b7280;
     margin-top: 0.5rem;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .product-info {
+        align-items: normal;
+    }
+
+    h1.product-title,
+    div.product-price {
+        font-size: 16px;
+        text-align: left;
+    }
+
+    div.product-price {
+        margin-right: 7px;
+    }
+
+    h1.product-title,
+    p.brand-name {
+        font-size: 14px;
+    }
+
+    img.image {
+        margin: 0;
+        padding: 0;
+    }
 }

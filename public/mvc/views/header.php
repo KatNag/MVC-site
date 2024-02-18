@@ -17,7 +17,7 @@
                 <h1 class="header-title">CrossWorld</h1>
             </div>
         </a>
-        <a class="header-link" href="<?= BASE_URL ?>catalogue.php">Каталог</a>
+        <a class="header-link" href="<?= BASE_URL ?>catalog.php">Каталог</a>
         <div class="header-links">
             <div class="header-icons">
 

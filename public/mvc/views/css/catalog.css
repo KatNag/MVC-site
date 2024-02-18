@@ -1,0 +1,117 @@
+.catalog-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    margin-top: 140px;
+    background-color: #bed6e3;
+    padding: 5px;
+}
+
+.filters-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 20px;
+}
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    width: 12%;
+    background-color: rgb(246, 247, 247);
+    margin-top: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.filter-group {
+    margin-bottom: 20px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #114461;
+}
+
+.filter-group select,
+.filter-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    border: 1px solid #fbd085;
+    border-radius: 5px;
+    font-family: "Comic Sans MS";
+    transition: border-color 0.3s ease;
+}
+
+.filter-group select option:checked {
+    background-color: #fbd085;
+}
+
+.filter-group select:hover,
+.filter-group input:hover {
+    border-color: #ffcc00;
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.product-card {
+    margin-bottom: 20px;
+}
+
+.confirm-button,
+.clear-button {
+    cursor: pointer;
+    font-family: "Comic Sans MS";
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.confirm-button {
+    background-color: #87a7b7;
+    color: #fff;
+}
+
+.confirm-button:hover {
+    background-color: #144664;
+    color: #000000;
+}
+
+.clear-button {
+    background-color: #d7826f;
+    color: #fff;
+}
+
+.clear-button:hover {
+    background-color: #e34d26;
+    color: #000000;
+}
+
+select {
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .catalog-container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 100px;
+    }
+
+    .filters {
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .filter-group {
+        margin-bottom: 0;
+    }
+}

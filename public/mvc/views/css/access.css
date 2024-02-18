@@ -68,8 +68,7 @@ h1 {
     font-weight: bold;
     line-height: 1.4;
     color: #374151;
-    margin-bottom: 1rem;
-    margin-left: 35%;
+    text-align: center;
 }
 
 form {

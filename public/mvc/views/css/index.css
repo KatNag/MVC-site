@@ -92,7 +92,6 @@ h2.section-title {
 .header-link {
     text-decoration: none;
     font-size: 24px;
-    margin-left: 20px;
     color: #333;
     user-select: none;
 }
@@ -354,6 +353,10 @@ article {
         margin: 10px;
         box-sizing: border-box;
         border: 1px solid #ccc;
+    }
+
+    .photos .photo_element {
+        width: 45%;
     }
 }
 

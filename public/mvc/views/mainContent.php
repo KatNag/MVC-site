@@ -107,6 +107,6 @@
 </div>
 
 <div class='button-zone'>
-    <a class='big-button' href='<?= BASE_URL ?>catalogue.php'>Выбрать идеальную пару</a>
+    <a class='big-button' href='<?= BASE_URL ?>catalog.php'>Выбрать идеальную пару</a>
 </div>
 </body>
