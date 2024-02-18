@@ -154,8 +154,17 @@ img.image {
 }
 
 @media (max-width: 768px) {
+    .information {
+        width: 93%;
+        align-items: center;
+    }
+
     .product-info {
         align-items: normal;
+    }
+
+    .cards-container {
+        margin-left: 0;
     }
 
     h1.product-title,
