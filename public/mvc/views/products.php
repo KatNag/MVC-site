@@ -62,7 +62,6 @@
             </button>
         </div>
     </div>
-    <!-- Карточки товаров -->
     <div class="cards-container">
         <?php include 'productCard.php'; ?>
         <?php include 'productCard.php'; ?>

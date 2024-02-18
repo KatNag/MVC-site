@@ -30,9 +30,9 @@
                 <!--                --><?php //= BASE_URL ?><!--images/icons/favourite.png">-->
                 <!--                </button>-->
 
-                <button class="icon-button">
+                <a href="<?= BASE_URL ?>cart.php" class="icon-button rounded">
                     <img alt="Корзина" class="icon-image" src="<?= BASE_URL ?>images/icons/shoppingCart.png">
-                </button>
+                </a>
 
                 <a href="<?= BASE_URL ?>mvc/views/access.php" class="icon-button rounded">
                     <img alt="Вход" class="icon-image" src="<?= BASE_URL ?>images/icons/user.png">

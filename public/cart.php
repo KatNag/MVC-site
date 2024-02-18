@@ -17,7 +17,7 @@
 $pageTitle = "Каталог";
 $pageContent = [
     'header' => 'mvc/views/header.php',
-    'content' => 'mvc/views/products.php',
+    'content' => 'mvc/views/cartContent.php',
     'footer' => 'mvc/views/footer.php'
 ];
 
