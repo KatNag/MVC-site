@@ -1,5 +1,5 @@
 <?php
-const DEBUG_MODE = true;
+define('DEBUG_MODE', true);
 
 if (DEBUG_MODE === true) {
     ini_set('display_errors', 1);
@@ -8,13 +8,15 @@ if (DEBUG_MODE === true) {
 
 session_start();
 
-define('ROOT', dirname(__FILE__));
+define('ROOT', $_SERVER['DOCUMENT_ROOT'] . '/MVC-site');
+//echo 'Debug: Autoload file path: ' . ROOT . '/components/autoload.php' . '<br>';
+
 require_once(ROOT . '/components/autoload.php');
-require_once(ROOT . '/components/connection.php');
+require_once(ROOT . '/components/Connection.php');
 require_once(ROOT . '/config/dbConfig.php');
+require_once(ROOT . '/components/Router.php');
 
 $pdo = Connection::connect();
 
-
-//$router = new Router();
-//$router->run();
+$router = new Router();
+$router->run();
