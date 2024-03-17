@@ -9,7 +9,6 @@ if (DEBUG_MODE === true) {
 session_start();
 
 define('ROOT', $_SERVER['DOCUMENT_ROOT'] . '/MVC-site');
-//echo 'Debug: Autoload file path: ' . ROOT . '/components/autoload.php' . '<br>';
 
 require_once(ROOT . '/components/autoload.php');
 require_once(ROOT . '/components/Connection.php');

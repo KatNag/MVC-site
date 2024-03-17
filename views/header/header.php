@@ -33,7 +33,8 @@
                     <img alt="Корзина" class="icon-image" src="/MVC-site/public/images/icons/shoppingCart.png">
                 </a>
 
-                <a href="access" class="icon-button rounded">
+                <a href="<?php echo isset($_SESSION['login_success']) && $_SESSION['login_success'] === true ? '/MVC-site/profile' : '/MVC-site/access'; ?>"
+                   class="icon-button rounded">
                     <img alt="Вход" class="icon-image" src="/MVC-site/public/images/icons/user.png">
                 </a>
 

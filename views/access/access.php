@@ -21,14 +21,22 @@
     </a>
 
     <div>
+        <?php
+        if (isset($_SESSION['registration_success']) && $_SESSION['registration_success'] === true) {
+            $username = $_SESSION['username'];
+            echo "<script>alert('Привет, $username!💪 Спасибо за регистрацию💖. Войди с данными, чтобы их запомнить🧠');</script>";
+            unset($_SESSION['registration_success']);
+            unset($_SESSION['username']);
+        }
+        ?>
 
-        <form id="registration-form" class="active-form" action="#">
-            <!--              onsubmit="return validateForm()">-->
+        <form id="registration-form" class="inactive-form" action="/MVC-site/registration" method="POST">
             <h1>Регистрация</h1>
             <label for="username">Имя пользователя</label>
             <input type="text" name="username" id="username" placeholder="Введите ваше имя" required=""
                    oninput="filterUsername(event)">
-            <div class="error-message" id="username-error"></div>
+            <div class=" error-message" id="username-error">
+            </div>
 
             <label for="email">Email</label>
             <input type="email" name="email" id="email" placeholder="name@mail.ru" required
@@ -64,7 +72,6 @@
                 <input type="password" name="confirm-password" id="confirm-password" placeholder="••••••••" required
                        minlength="8">
                 <button type="button" class="toggle-password-button">🔒</button>
-                <!--            TO DO-->
             </div>
 
             <button type="submit" class="button create-account-button">Создать аккаунт</button>
@@ -72,11 +79,10 @@
             </p>
         </form>
 
-        <form id="login-form" class="inactive-form" action="#">
-            <!--              onsubmit="return validateForm()">-->
+        <form id="login-form" class="active-form" action="/MVC-site/login" method="POST">
             <h1>Вход</h1>
-            <label for="email-login">Email</label>
-            <input type="email" name="email-login" id="email-login" placeholder="name@mail.ru" required="">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="name@mail.ru" required="">
 
             <label for="password">Пароль</label>
             <div class="password-container">
@@ -85,12 +91,10 @@
             </div>
 
             <button type="submit" class="button signin-account-button">Войти</button>
-            <!--        TO DO-->
             <p>Ещё не зарегистрированы? <a href="#" class="font-medium"
                                            id="toggle-registration">Зарегистрироваться</a></p>
         </form>
     </div>
-
 </section>
 </body>
 </html>

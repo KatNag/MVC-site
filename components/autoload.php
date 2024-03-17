@@ -9,8 +9,10 @@ function autoloader($class_name)
     );
 
     foreach ($array_paths as $path) {
-        $path = ROOT . $path . $class_name . '.php';
+        $path = ROOT . $path . str_replace('\\', '/', $class_name) . '.php';
+        echo 'Debug: Trying ' . $path . '<br>';
         if (is_file($path)) {
+            echo 'Debug: Class ' . $class_name . ' found at ' . $path . '<br>';
             include_once $path;
             return;
         }

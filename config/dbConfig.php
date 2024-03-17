@@ -5,4 +5,3 @@ $dbConfig = array(
     "db_user" => "admin",
     "db_pass" => "admin",
 );
-

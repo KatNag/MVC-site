@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Фев 15 2024 г., 13:37
+-- Время создания: Мар 17 2024 г., 18:04
 -- Версия сервера: 10.4.32-MariaDB
 -- Версия PHP: 8.2.12
 
@@ -91,6 +91,14 @@ CREATE TABLE `roles` (
   `role_name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Дамп данных таблицы `roles`
+--
+
+INSERT INTO `roles` (`id`, `role_name`) VALUES
+(1, 'Администратор'),
+(2, 'Покупатель');
+
 -- --------------------------------------------------------
 
 --
@@ -110,24 +118,29 @@ CREATE TABLE `sizes` (
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `birth_date` date NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `birthdate` date NOT NULL,
   `registration_date` timestamp NOT NULL DEFAULT current_timestamp(),
-  `login` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL
+  `email` varchar(255) NOT NULL,
+  `role_id` int(11) DEFAULT 2,
+  `gender` enum('м','ж') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Структура таблицы `user_roles`
+-- Дамп данных таблицы `users`
 --
 
-CREATE TABLE `user_roles` (
-  `user_id` int(11) NOT NULL,
-  `role_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `users` (`id`, `username`, `birthdate`, `registration_date`, `password`, `email`, `role_id`, `gender`) VALUES
+(1, 'fsf', '1992-03-05', '2024-03-16 19:04:27', '$2y$10$16DFINn/vJrUJjX/0g9GN.6N4GZVOuVyixD8IbGblRT7QtywK2X0.', 'fdf@www.ru', 2, 'ж'),
+(3, 'wefwef', '2001-01-12', '2024-03-16 19:10:46', '$2y$10$H1etebRZK3aoJ22.vqlGnuVzTDsgbRfB1TDD10yPd38.5Ir1mpsZ.', 'wgwgwg@mail.ce', 2, 'ж'),
+(4, 'dfsf', '1990-02-01', '2024-03-16 19:19:37', '$2y$10$1lzXv9nWoBcIldtPF803UuabHFk5yxauppVLgEuFxl/KP.CtOB5t.', 'sfsefse@aaa.du', 2, 'ж'),
+(5, 'dfsdf', '1990-03-12', '2024-03-16 19:24:31', '$2y$10$8YiUNyc0f9jNuTCRV2mNtOrZDOqLb9GBppcQqNQPPMRRBS0a///1y', 'sdfsdf@kk.do', 2, 'ж'),
+(6, 'ацыуацау', '1990-12-12', '2024-03-16 19:27:44', '$2y$10$svMaMUn6oTmAETrzrVn3I.p4PpeZaEAhM2ZFlg5fKbl7yFJuT3ie6', '123123@mma.dd', 2, 'м'),
+(7, 'ыуацау', '1990-03-12', '2024-03-16 19:28:41', '$2y$10$SitsIdZKKRXdHqa9dKXOvu9LCbRGZxEwOBGcLLuo2quhlOGkv9ap2', '12123@ios.qw', 2, 'м'),
+(8, 'ацуацуа', '1990-01-01', '2024-03-16 19:31:43', '$2y$10$i4fV./YvdRi.cPcMVFqdhuC2VkOFmCjqybQU/6XojZzSi.1neh4aa', 'dwedw@mails.we', 2, 'м'),
+(10, 'Катя', '2003-04-10', '2024-03-17 12:15:50', '$2y$10$2p.pf1q2fXAoVkgAodnsheGepJC4/Siy02.Deh4mI7lKQhikgT1DG', 'kate@mail.ru', 2, 'ж'),
+(11, 'Вася', '1970-05-07', '2024-03-17 12:48:13', '$2y$10$m55RLz14WiHM.0amt0ovru4r0VtpUo9xdnb0h4bUQN/hBGw8AfzHe', 'vas@mal.sq', 2, 'м');
 
 --
 -- Индексы сохранённых таблиц
@@ -186,15 +199,8 @@ ALTER TABLE `sizes`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `login` (`login`),
-  ADD UNIQUE KEY `email` (`email`);
-
---
--- Индексы таблицы `user_roles`
---
-ALTER TABLE `user_roles`
-  ADD PRIMARY KEY (`user_id`,`role_id`),
-  ADD KEY `role_id` (`role_id`);
+  ADD UNIQUE KEY `email` (`email`),
+  ADD KEY `fk_role_id` (`role_id`);
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц
@@ -228,7 +234,7 @@ ALTER TABLE `product_sizes`
 -- AUTO_INCREMENT для таблицы `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `sizes`
@@ -240,7 +246,7 @@ ALTER TABLE `sizes`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
@@ -273,11 +279,10 @@ ALTER TABLE `product_sizes`
   ADD CONSTRAINT `product_sizes_ibfk_2` FOREIGN KEY (`size_id`) REFERENCES `sizes` (`id`);
 
 --
--- Ограничения внешнего ключа таблицы `user_roles`
+-- Ограничения внешнего ключа таблицы `users`
 --
-ALTER TABLE `user_roles`
-  ADD CONSTRAINT `user_roles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `user_roles_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);
+ALTER TABLE `users`
+  ADD CONSTRAINT `fk_role_id` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
