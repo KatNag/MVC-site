@@ -21,13 +21,13 @@ class AccessController
 
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             $user = (new Access)->getByEmail($email);
-            
+
             if ($user && password_verify($password, $user->password)) {
                 // Если пользователь существует и пароль совпадает, аутентифицируем пользователя
                 $_SESSION['user_id'] = $user->id;
                 $_SESSION['username'] = $user->username;
                 $_SESSION['login_success'] = true;
-                header("Location: /MVC-site/catalog");
+                header("Location: /MVC-site/profile");
                 exit;
             } else {
                 echo "Неправильное имя пользователя или пароль";
