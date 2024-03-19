@@ -26,7 +26,6 @@
             $username = $_SESSION['username'];
             echo "<script>alert('Привет, $username!💪 Спасибо за регистрацию💖. Войди с данными, чтобы их запомнить🧠');</script>";
             unset($_SESSION['registration_success']);
-            unset($_SESSION['username']);
         }
         ?>
 

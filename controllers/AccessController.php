@@ -20,19 +20,33 @@ class AccessController
             $password = $_POST['password'];
 
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-            $user = (new Access)->getByEmail($email);
+            $user = (new Access)->getByEmail($email); // Возвращает данные вощедшего пользователя
 
             if ($user && password_verify($password, $user->password)) {
                 // Если пользователь существует и пароль совпадает, аутентифицируем пользователя
                 $_SESSION['user_id'] = $user->id;
                 $_SESSION['username'] = $user->username;
+                $_SESSION['email'] = $user->email;
+                $_SESSION['gender'] = $user->gender;
+                $_SESSION['birthdate'] = $user->birthdate;
                 $_SESSION['login_success'] = true;
+
+//                // Создаем объект профиля и заносим его в сессию
+//                $profile = new Profile();
+//                $profile->id = $user->id;
+//                $profile->username = $user->username;
+//                $profile->email = $user->email;
+//                $profile->gender = $user->gender;
+//                $profile->birthdate = $user->birthdate;
+//                $_SESSION['profile'] = $profile;
+
                 header("Location: /MVC-site/profile");
                 exit;
             } else {
                 echo "Неправильное имя пользователя или пароль";
             }
         }
+
     }
 
     public static function actionRegistration()

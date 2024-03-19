@@ -8,6 +8,7 @@ return array(
     'MVC-site/registration' => 'Access/Registration',
     'MVC-site/login' => 'Access/Login',
     'MVC-site/profile' => 'Profile/Index',
+    'MVC-site/updateProfile' => 'Profile/UpdateProfile',
 
     '(^.+$)' => 'Main/index'
 );
