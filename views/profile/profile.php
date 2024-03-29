@@ -8,6 +8,7 @@
     <title>Catalog</title>
 
     <link rel="stylesheet" href="/MVC-site/views/_css/profile.css">
+    <script src="/MVC-site/views/_js/genderChoice.js"></script>
 </head>
 
 <body>
@@ -32,13 +33,29 @@
             <div class="error-message" id="birthdate-error"></div>
 
             <label for="gender">Пол:</label>
-            <label for="male">М</label>
-            <input type="radio" id="male" name="gender" value="м" <?php echo ($_SESSION['gender'] === 'м') ? 'checked' : ''; ?>>
-            <label for="female">Ж</label>
-            <input type="radio" id="female" name="gender" value="ж" <?php echo ($_SESSION['gender'] === 'ж') ? 'checked' : ''; ?>>
+            <div class="gender-container">
+                <div class="gender-option female">
+                    <input type="radio" name="gender" id="female"
+                           value="ж"
+                        <?php echo ($_SESSION['gender'] === 'ж') ? 'checked' : ''; ?>>
+                    <img src="/MVC-site/public/images/photos/womanSneaker.jpg" alt="Female">
+                    <p>Жен.</p>
+                </div>
+
+                <div class="gender-option male">
+                    <input type="radio" name="gender" id="male"
+                           value="м"
+                        <?php echo ($_SESSION['gender'] === 'м') ? 'checked' : ''; ?>>
+                    <img src="/MVC-site/public/images/photos/manSneaker.jpg" alt="Male">
+                    <p>Муж.</p>
+                </div>
+            </div>
 
             <button type="button" class="button update-account-button">Обновить данные</button>
         </form>
+
+        <button type="" onclick="logoutUser()" class="button logout-button">Выйти</button>
+
     </div>
     <div class="cards-container">
         <!--        TO DO Здесь карточки товаров предыдущих заказов-->
@@ -53,8 +70,13 @@ if (isset($_SESSION['updateProfile_success']) && $_SESSION['updateProfile_succes
 ?>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        const genderLabels = document.querySelectorAll('.gender-option');
         document.querySelector('.update-account-button').addEventListener('click', confirmUpdate);
     });
+
+    function logoutUser() {
+        window.location.href = '/MVC-site/logout';
+    }
 
     function confirmUpdate() {
         if (confirm("Вы уверены, что хотите обновить данные профиля?")) {

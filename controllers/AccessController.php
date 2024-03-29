@@ -80,4 +80,12 @@ class AccessController
         }
     }
 
+    public function actionLogout()
+    {
+        session_unset();
+        session_destroy();
+        header("Location: /MVC-site/access");
+    }
+
+
 }

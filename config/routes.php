@@ -9,6 +9,7 @@ return array(
     'MVC-site/login' => 'Access/Login',
     'MVC-site/profile' => 'Profile/Index',
     'MVC-site/updateProfile' => 'Profile/UpdateProfile',
+    'MVC-site/logout' => 'Access/Logout',
 
     '(^.+$)' => 'Main/index'
 );
