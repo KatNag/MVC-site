@@ -20,7 +20,7 @@ class AccessController
             $password = $_POST['password'];
 
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-            $user = (new Access)->getByEmail($email); // Возвращает данные вощедшего пользователя
+            $user = (new Access)->getByEmail($email); // Возвращает данные вошедшего пользователя
 
             if ($user && password_verify($password, $user->password)) {
                 // Если пользователь существует и пароль совпадает, аутентифицируем пользователя
@@ -86,6 +86,5 @@ class AccessController
         session_destroy();
         header("Location: /MVC-site/access");
     }
-
 
 }

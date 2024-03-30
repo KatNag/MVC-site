@@ -1,3 +1,9 @@
+@font-face {
+    font-family: 'Magneto';
+    src: url('/MVC-site/vendor/webfonts/magneto bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 body {
     margin: 0;

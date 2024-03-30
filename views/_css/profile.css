@@ -298,4 +298,9 @@
         min-width: 90%;
         margin: 0;
     }
+
+    .gender-option img {
+        width: 40%;
+    }
+
 }

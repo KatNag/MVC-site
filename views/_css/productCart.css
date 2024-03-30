@@ -85,7 +85,8 @@ img.image {
     position: relative;
     font-size: 0.9rem;
     color: #114461;
-    margin-right: 6px; /* Добавленный отступ между выбранным размером и кнопкой удаления */
+    margin-right: 6px;
+    cursor: pointer;
 }
 
 .selected-size label::before {

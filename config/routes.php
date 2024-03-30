@@ -10,6 +10,7 @@ return array(
     'MVC-site/profile' => 'Profile/Index',
     'MVC-site/updateProfile' => 'Profile/UpdateProfile',
     'MVC-site/logout' => 'Access/Logout',
+    'MVC-site/order' => 'Order/Index',
 
     '(^.+$)' => 'Main/index'
 );
