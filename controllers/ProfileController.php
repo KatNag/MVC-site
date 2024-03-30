@@ -40,33 +40,5 @@ class ProfileController
             }
         }
     }
-//    function actionUpdateProfile()
-//    {
-//        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//            // Обновляем данные профиля
-//            $profile = $this->getProfile();
-//
-//            echo "ауф";
-//
-//            $profile->username = $_POST['username'];
-//            $profile->email = $_POST['email'];
-//            $profile->birthdate = $_POST['birthdate'];
-//            $profile->gender = $_POST['gender'];
-//
-//            // Вызываем метод update для обновления данных в базе данных
-//            $result = $profile->update($profile);
-//
-//            // Проверяем успешность обновления профиля
-//            if ($result) {
-//                // Обновление прошло успешно, перенаправляем пользователя на страницу профиля
-//                $_SESSION['profile'] = $profile;
-//                header("Location: /MVC-site/profile.php");
-//                exit;
-//            } else {
-//                // Обработка ошибки обновления профиля
-//                echo "Ошибка обновления профиля";
-//            }
-//        }
-//    }
 
 }

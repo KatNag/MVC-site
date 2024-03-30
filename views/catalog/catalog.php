@@ -66,7 +66,7 @@
     </div>
     <div class="cards-container">
         <!--        TO DO: Здесь с сервера должны заполненные карточки должны отображаться-->
-        <?php include ROOT . '/views/product/one.php'; ?>
+        <?php include ROOT . '/views/product/cart.php'; ?>
     </div>
     <!--    TO DO: Пагинация страниц-->
 </div>

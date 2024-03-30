@@ -20,7 +20,6 @@
     </div>
     <div class="cards-container">
         <!--        TO DO Здесь карточки товаров корзины-->
-        <?php include ROOT . '/views/product/cart.php'; ?>
     </div>
 </div>
 </body>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Мар 17 2024 г., 18:04
+-- Время создания: Мар 30 2024 г., 02:36
 -- Версия сервера: 10.4.32-MariaDB
 -- Версия PHP: 8.2.12
 
@@ -31,6 +31,13 @@ CREATE TABLE `brands` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `brands`
+--
+
+INSERT INTO `brands` (`id`, `name`) VALUES
+(1, 'Найк');
 
 -- --------------------------------------------------------
 
@@ -65,8 +72,16 @@ CREATE TABLE `products` (
   `price` decimal(10,2) NOT NULL,
   `name` varchar(255) NOT NULL,
   `brand_id` int(11) DEFAULT NULL,
-  `gender` varchar(50) DEFAULT NULL
+  `gender` enum('м','ж') DEFAULT NULL,
+  `image_path` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `products`
+--
+
+INSERT INTO `products` (`id`, `price`, `name`, `brand_id`, `gender`, `image_path`) VALUES
+(1, 5000.00, 'Кроссовок', 1, 'ж', '/MVC-site/public/images/photos/testProduct.webp');
 
 -- --------------------------------------------------------
 
@@ -79,6 +94,14 @@ CREATE TABLE `product_sizes` (
   `product_id` int(11) DEFAULT NULL,
   `size_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `product_sizes`
+--
+
+INSERT INTO `product_sizes` (`id`, `product_id`, `size_id`) VALUES
+(1, 1, 1),
+(2, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -110,6 +133,16 @@ CREATE TABLE `sizes` (
   `scale` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Дамп данных таблицы `sizes`
+--
+
+INSERT INTO `sizes` (`id`, `scale`) VALUES
+(1, 36),
+(2, 37),
+(3, 38),
+(4, 39);
+
 -- --------------------------------------------------------
 
 --
@@ -140,7 +173,9 @@ INSERT INTO `users` (`id`, `username`, `birthdate`, `registration_date`, `passwo
 (7, 'ыуацау', '1990-03-12', '2024-03-16 19:28:41', '$2y$10$SitsIdZKKRXdHqa9dKXOvu9LCbRGZxEwOBGcLLuo2quhlOGkv9ap2', '12123@ios.qw', 2, 'м'),
 (8, 'ацуацуа', '1990-01-01', '2024-03-16 19:31:43', '$2y$10$i4fV./YvdRi.cPcMVFqdhuC2VkOFmCjqybQU/6XojZzSi.1neh4aa', 'dwedw@mails.we', 2, 'м'),
 (10, 'Катя', '2003-04-10', '2024-03-17 12:15:50', '$2y$10$2p.pf1q2fXAoVkgAodnsheGepJC4/Siy02.Deh4mI7lKQhikgT1DG', 'kate@mail.ru', 2, 'ж'),
-(11, 'Вася', '1970-05-07', '2024-03-17 12:48:13', '$2y$10$m55RLz14WiHM.0amt0ovru4r0VtpUo9xdnb0h4bUQN/hBGw8AfzHe', 'vas@mal.sq', 2, 'м');
+(11, 'Вася', '1970-05-07', '2024-03-17 12:48:13', '$2y$10$m55RLz14WiHM.0amt0ovru4r0VtpUo9xdnb0h4bUQN/hBGw8AfzHe', 'vas@mal.sq', 2, 'м'),
+(12, 'ivanAufчик', '2002-07-30', '2024-03-19 15:27:25', '$2y$10$P6yFEWZIe03Yefn/ERc43uPucbODp5mPzny4ZGYyqBPB8fapgOiqy', 'ivanpozdeev2015@gmail.com', 2, 'м'),
+(16, 'yan', '1999-02-12', '2024-03-19 17:23:38', '$2y$10$ZEdPZchdb.OYCXH4kTbwB.SZb5JXBSA0zW.WM56Zz6DnSVG.gfqQO', 'yan2015@gmail.com', 2, 'м');
 
 --
 -- Индексы сохранённых таблиц
@@ -210,7 +245,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `carts`
@@ -222,13 +257,13 @@ ALTER TABLE `carts`
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `product_sizes`
 --
 ALTER TABLE `product_sizes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `roles`
@@ -240,13 +275,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT для таблицы `sizes`
 --
 ALTER TABLE `sizes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

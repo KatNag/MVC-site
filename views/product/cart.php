@@ -13,33 +13,38 @@
 </head>
 
 <body>
-<!--        TO DO Заменить все на переменные, где будут данные из бд подтягиваться (корзина)-->
-<div class="product-container">
-    <div class="product-image">
-        <a data-fancybox="gallery" data-src="/MVC-site/public/images/photos/testProduct.webp">
-            <img alt="Utility Jacket" class="image" loading="lazy"
-                 src="/MVC-site/public/images/photos/testProduct.webp"/>
-        </a>
-    </div>
-    <form class="product-details">
-        <div class="product-info">
-            <h1 class="product-title">Лучшие кроссы</h1>
-            <div class="product-price">₽11 000</div>
-        </div>
-        <p class="brand-name">Noname</p>
-        <div class="selected-size">
-            <input checked id="size-36" name="size" type="radio" value="36"/>
-            <label for="size-36">36</label>
-        </div>
 
-        <div class="actions">
-            <div class="buttons">
-                <button class="delete-from-bag" type="button" title="Удалить из корзины">
-                    <i class="fas fa-trash"></i>
-                </button>
+<div class="cards-container">
+    <?php foreach ($products as $product): ?>
+        <div class="product-container">
+            <div class="product-image">
+                <a data-fancybox="gallery" data-src="<?php echo $product['image_path']; ?>">
+                    <img alt="<?php echo $product['name']; ?>" class="image" loading="lazy" src="<?php echo $product['image_path']; ?>"/>
+                </a>
             </div>
+            <form class="product-details">
+                <div class="product-info">
+                    <h1 class="product-title"><?php echo $product['name']; ?></h1>
+                    <div class="product-price"><?php echo $product['price']; ?></div>
+                </div>
+                <p class="brand-name"><?php echo $product['brand']; ?></p>
+                <div class="selected-size">
+                    <?php foreach ($product['sizes'] as $size): ?>
+                        <input id="size-<?php echo $size; ?>" name="size" type="radio" value="<?php echo $size; ?>"/>
+                        <label for="size-<?php echo $size; ?>"><?php echo $size; ?></label>
+                    <?php endforeach; ?>
+                </div>
+                <div class="actions">
+                    <div class="buttons">
+                        <button class="delete-from-bag" type="button" title="Удалить из корзины">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
-    </form>
+    <?php endforeach; ?>
 </div>
+
 </body>
 </html>
