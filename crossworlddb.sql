@@ -37,7 +37,12 @@ CREATE TABLE `brands` (
 --
 
 INSERT INTO `brands` (`id`, `name`) VALUES
-(1, 'Найк');
+(1, 'Adidas'),
+(2, 'Fila'),
+(3, 'Nike'),
+(4, 'Puma'),
+(5, 'Skechers'),
+(6, 'Reebok');
 
 -- --------------------------------------------------------
 
@@ -81,7 +86,21 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `price`, `name`, `brand_id`, `gender`, `image_path`) VALUES
-(1, 5000.00, 'Кроссовок', 1, 'ж', '/MVC-site/public/images/photos/testProduct.webp');
+(1, 5000.00, 'Кроссовок', 1, 'ж', '/MVC-site/public/images/photos/testProduct.webp'),
+(2, 5000.00, 'Кроссовки AIR MAX SC', 3, 'ж', '/MVC-site/public/images/photos/NIKE_AIR_MAX_SC.webp'),
+(3, 5000.00, 'Кроссовки CLASSIC LEATHER', 6, 'ж', '/MVC-site/public/images/photos/REEBOOK_CLASSIC _LEATHER.webp'),
+(4, 7999.00, 'Кроссовки TRACE LOW', 2, 'ж', '/MVC-site/public/images/photos/FILA_TRACE_LOW.webp'),
+(5, 14999.00, 'Кроссовки Exclusive Pure Luxe Wns', 4, 'ж', '/MVC-site/public/images/photos/PUMA_Pure_Luxe_Wns.webp'),
+(6, 5000.00, 'Кроссовки STRUTTER', 1, 'ж', '/MVC-site/public/images/photos/ADIDAS_STRUTTER.webp'),
+(7, 5000.00, 'Кроссовок', 1, 'ж', '/MVC-site/public/images/photos/testProduct.webp'),
+(8, 5000.00, 'Кроссовок', 1, 'ж', '/MVC-site/public/images/photos/testProduct.webp'),
+(9, 5000.00, 'Кроссовок', 1, 'ж', '/MVC-site/public/images/photos/testProduct.webp'),
+(10, 5000.00, 'Кроссовок', 1, 'ж', '/MVC-site/public/images/photos/testProduct.webp'),
+(11, 5000.00, 'Кроссовок', 1, 'ж', '/MVC-site/public/images/photos/testProduct.webp'),
+(12, 5000.00, 'Кроссовок', 1, 'ж', '/MVC-site/public/images/photos/testProduct.webp'),
+(13, 5000.00, 'Кроссовок', 1, 'ж', '/MVC-site/public/images/photos/testProduct.webp'),
+(14, 5000.00, 'Кроссовок', 1, 'ж', '/MVC-site/public/images/photos/testProduct.webp'),
+(15, 5000.00, 'Кроссовок', 1, 'ж', '/MVC-site/public/images/photos/testProduct.webp');
 
 -- --------------------------------------------------------
 
@@ -138,10 +157,17 @@ CREATE TABLE `sizes` (
 --
 
 INSERT INTO `sizes` (`id`, `scale`) VALUES
-(1, 36),
-(2, 37),
-(3, 38),
-(4, 39);
+(1, 35),
+(2, 36),
+(3, 37),
+(4, 38),
+(5, 39),
+(6, 40),
+(7, 41),
+(8, 42),
+(9, 43),
+(10, 44),
+(11, 45);
 
 -- --------------------------------------------------------
 
