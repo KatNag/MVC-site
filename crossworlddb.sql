@@ -87,21 +87,21 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `price`, `name`, `brand_id`, `gender`, `image_path`) VALUES
 (1, 5000.00, 'Кроссовок', 1, 'ж', '/MVC-site/public/images/photos/testProduct.webp'),
-(2, 13990.00, 'Кроссовки AIR MAX SC', 3, 'ж', '/MVC-site/public/images/photos/NIKE_AIR_MAX_SC.webp'),
-(3, 9599.00, 'Кроссовки CLASSIC LEATHER', 5, 'ж', '/MVC-site/public/images/photos/REEBOK_CLASSIC_LEATHER.webp'),
-(4, 7999.00, 'Кроссовки TRACE LOW', 2, 'ж', '/MVC-site/public/images/photos/FILA_TRACE_LOW.webp'),
-(5, 14999.00, 'Кроссовки Exclusive Pure Luxe Wns', 4, 'ж', '/MVC-site/public/images/photos/PUMA_Pure_Luxe_Wns.webp'),
-(6, 9999.00, 'Кроссовки STRUTTER', 1, 'ж', '/MVC-site/public/images/photos/ADIDAS_STRUTTER.webp'),
-(7, 8890.00, 'Кроссовки ST Runner v3 L', 4, 'ж', '/MVC-site/public/images/photos/PUMA_ST_Runner_v3_L.webp'),
-(8, 7999.00, 'Кроссовки Disperse XT 3 Summer Daze Wn s', 4, 'ж', '/MVC-site/public/images/photos/PUMA_Disperse_XT_3_Summer_Daze_Wn_s.webp'),
-(9, 10990.00, 'Кроссовки X-Ray Tour PUMA Black-PUMA Wh', 4, 'ж', '/MVC-site/public/images/photos/X-Ray_Tour_PUMA_Black-PUMA_Wh.webp'),
-(10, 13590.00, 'Кроссовки Venture Runner', 3, 'м', '/MVC-site/public/images/photos/Nike_Venture_Runner.webp'),
-(11, 9999.00, 'Кроссовки STRUTTER', 1, 'м', '/MVC-site/public/images/photos/ADIDAS_STRUTTER_m.webp'),
-(12, 7190.00, 'Кроссовки Anzarun Lite', 4, 'м', '/MVC-site/public/images/photos/PUMA_Anzarun_Lite.webp'),
-(13, 9599.00, 'Кроссовки CLASSIC LEATHER', 5, 'м', '/MVC-site/public/images/photos/REEBOK_CLASSIC_LEATHER_m.webp'),
-(14, 29499.00, 'Кроссовки ACE RUNNER', 6, 'ж', '/MVC-site/public/images/photos/EA7_ACE_RUNNER.webp'),
-(15, 25399.00, 'Кроссовки CRUSHER DISTANCE REF', 6, 'м', '/MVC-site/public/images/photos/EA7_CRUSHER_DISTANCE_REF.webp'),
-(16, 6799.00, 'Кроссовки SENSE 2.0', 2, 'ж', '/MVC-site/public/images/photos/FILA_SENSE_2.0.webp');
+(2, 13990.00, 'AIR MAX SC', 3, 'ж', '/MVC-site/public/images/photos/NIKE_AIR_MAX_SC.webp'),
+(3, 9599.00, 'CLASSIC LEATHER', 5, 'ж', '/MVC-site/public/images/photos/REEBOK_CLASSIC_LEATHER.webp'),
+(4, 7999.00, 'TRACE LOW', 2, 'ж', '/MVC-site/public/images/photos/FILA_TRACE_LOW.webp'),
+(5, 14999.00, 'Exclusive Pure Luxe Wns', 4, 'ж', '/MVC-site/public/images/photos/PUMA_Pure_Luxe_Wns.webp'),
+(6, 9999.00, 'STRUTTER', 1, 'ж', '/MVC-site/public/images/photos/ADIDAS_STRUTTER.webp'),
+(7, 8890.00, 'ST Runner v3 L', 4, 'ж', '/MVC-site/public/images/photos/PUMA_ST_Runner_v3_L.webp'),
+(8, 7999.00, 'Disperse XT 3 Summer Daze Wn s', 4, 'ж', '/MVC-site/public/images/photos/PUMA_Disperse_XT_3_Summer_Daze_Wn_s.webp'),
+(9, 10990.00, 'X-Ray Tour PUMA Black-PUMA Wh', 4, 'ж', '/MVC-site/public/images/photos/X-Ray_Tour_PUMA_Black-PUMA_Wh.webp'),
+(10, 13590.00, 'Venture Runner', 3, 'м', '/MVC-site/public/images/photos/Nike_Venture_Runner.webp'),
+(11, 9999.00, 'STRUTTER', 1, 'м', '/MVC-site/public/images/photos/ADIDAS_STRUTTER_m.webp'),
+(12, 7190.00, 'Anzarun Lite', 4, 'м', '/MVC-site/public/images/photos/PUMA_Anzarun_Lite.webp'),
+(13, 9599.00, 'CLASSIC LEATHER', 5, 'м', '/MVC-site/public/images/photos/REEBOK_CLASSIC_LEATHER_m.webp'),
+(14, 29499.00, 'ACE RUNNER', 6, 'ж', '/MVC-site/public/images/photos/EA7_ACE_RUNNER.webp'),
+(15, 25399.00, 'CRUSHER DISTANCE REF', 6, 'м', '/MVC-site/public/images/photos/EA7_CRUSHER_DISTANCE_REF.webp'),
+(16, 6799.00, 'SENSE 2.0', 2, 'ж', '/MVC-site/public/images/photos/FILA_SENSE_2.0.webp');
 -- --------------------------------------------------------
 
 --
