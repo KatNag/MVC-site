@@ -9,8 +9,6 @@ class CatalogController
         global $pdo;
 
         if (!$products) {
-            // Обработка ситуации, когда данные о продуктах не были получены
-            // Например, можно вывести сообщение об ошибке или перенаправить пользователя на другую страницу
             echo "Ошибка загрузки данных о продуктах";
             return false;
         }
@@ -35,6 +33,8 @@ class CatalogController
             'footer' => ROOT . '/views/footer/footer.php',
             'products' => $products
         ];
+
+        $sizes = Product::getAllSizes();
 
         include($_SERVER['DOCUMENT_ROOT'] . '/MVC-site/views/catalog/index.php');
         return true;

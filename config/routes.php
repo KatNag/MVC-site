@@ -11,6 +11,8 @@ return array(
     'MVC-site/updateProfile' => 'Profile/UpdateProfile',
     'MVC-site/logout' => 'Access/Logout',
     'MVC-site/order' => 'Order/Index',
+    'MVC-site/admin' => 'Admin/Index',
+    'MVC-site/addProduct' => 'Product/AddProduct',
 
     '(^.+$)' => 'Main/index'
 );

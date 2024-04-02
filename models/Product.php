@@ -12,24 +12,6 @@ class Product
     }
 
     // Функция для поиска имени бренда по его ID
-    public function findBrandNameById($brandId)
-    {
-        // Выполняем SQL запрос для получения имени бренда по его ID
-        $sql = "SELECT name FROM brands WHERE id = :id";
-        $stmt = $this->db->prepare($sql);
-        $stmt->bindParam(':id', $brandId, PDO::PARAM_INT);
-        $stmt->execute();
-
-        // Получаем результат запроса
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        // Возвращаем имя бренда, если оно найдено
-        if ($result) {
-            return $result['name'];
-        } else {
-            return null; // Если бренд не найден
-        }
-    }
 
     public static function addProduct($name, $price, $gender, $brand_id, $image_path)
     {
@@ -84,6 +66,8 @@ class Product
 
     public static function getProductSizes($productId, $pdo)
     {
+        global $pdo;
+
         try {
             $query = "SELECT sizes.scale FROM product_sizes 
                       INNER JOIN sizes ON product_sizes.size_id = sizes.id 
@@ -98,4 +82,55 @@ class Product
             return [];
         }
     }
+
+    public static function getAllBrands()
+    {
+        global $pdo;
+
+        try {
+            $query = "SELECT * FROM brands";
+            $stmt = $pdo->prepare($query);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            error_log("Ошибка получения списка брендов: " . $e->getMessage(), 0);
+            return [];
+        }
+    }
+
+    public static function getAllSizes()
+    {
+        global $pdo;
+
+        try {
+            $query = "SELECT * FROM sizes";
+            $stmt = $pdo->prepare($query);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            error_log("Ошибка получения списка размеров: " . $e->getMessage(), 0);
+            return [];
+        }
+    }
+
+
+    public function findBrandNameById($brandId)
+    {
+        // Выполняем SQL запрос для получения имени бренда по его ID
+        $sql = "SELECT name FROM brands WHERE id = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':id', $brandId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Получаем результат запроса
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Возвращаем имя бренда, если оно найдено
+        if ($result) {
+            return $result['name'];
+        } else {
+            return null; // Если бренд не найден
+        }
+    }
+
 }
