@@ -31,15 +31,6 @@ class AccessController
                 $_SESSION['birthdate'] = $user->birthdate;
                 $_SESSION['login_success'] = true;
 
-//                // Создаем объект профиля и заносим его в сессию
-//                $profile = new Profile();
-//                $profile->id = $user->id;
-//                $profile->username = $user->username;
-//                $profile->email = $user->email;
-//                $profile->gender = $user->gender;
-//                $profile->birthdate = $user->birthdate;
-//                $_SESSION['profile'] = $profile;
-
                 header("Location: /MVC-site/profile");
                 exit;
             } else {

@@ -38,8 +38,15 @@ class Access
                 $q->bindValue(':' . $field, $value);
             }
 
-            $success = true;
-            $q->execute();
+            if ($q->execute()) {
+                // Если регистрация пользователя прошла успешно, создаем для него корзину
+                $userId = $pdo->lastInsertId(); // Получаем ID только что зарегистрированного пользователя
+                $cart = new Cart($pdo); // Создаем экземпляр класса Cart
+                $cart->createCart($userId); // Создаем корзину для пользователя
+                $success = true;
+            } else {
+                echo "Ошибка при выполнении запроса";
+            }
         } else {
             echo "Пустые пользовательские данные";
         }
