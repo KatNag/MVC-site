@@ -19,17 +19,21 @@
         <div class="header-links">
             <div class="header-icons">
 
-                <button class="icon-button">
-                    <img alt="Поиск" class="icon-image" src="/MVC-site/public/images/icons/search.png">
-                </button>
-                <!--        TO DO Поиск-->
-                <!---->
+                <?php
+                // Проверка роли пользователя
+                if (isset($_SESSION['role_id']) && $_SESSION['role_id'] == 1) {
+                    echo '<a href="/MVC-site/admin" class="icon-button rounded">';
+                    echo '<img alt="Админ" class="icon-image" src="/MVC-site/public/images/icons/admin.png">';
+                    echo '</a>';
+                }
+                ?>
+
                 <!--                <button class="icon-button">-->
                 <!--                    <img alt="Избранное" class="icon-image" src="-->
                 <!--                --><?php //= ROOT ?><!--images/icons/favourite.png">-->
                 <!--                </button>-->
 
-                <a href="cart" class="icon-button rounded">
+                <a href="/MVC-site/cart" class="icon-button rounded">
                     <img alt="Корзина" class="icon-image" src="/MVC-site/public/images/icons/shoppingCart.png">
                 </a>
 

@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: flex-start;
-    margin-top: 100px;
+    margin-top: 140px;
     background-color: #bed6e3;
     padding: 5px;
 }
@@ -104,7 +104,7 @@ select {
     .catalog-container {
         flex-direction: column;
         align-items: center;
-        margin-top: 20px;
+        margin-top: 80px;
     }
 
     .filters {

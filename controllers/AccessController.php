@@ -27,6 +27,7 @@ class AccessController
                 $_SESSION['user_id'] = $user->id;
                 $_SESSION['username'] = $user->username;
                 $_SESSION['email'] = $user->email;
+                $_SESSION['role_id'] = $user->role_id;
                 $_SESSION['gender'] = $user->gender;
                 $_SESSION['birthdate'] = $user->birthdate;
                 $_SESSION['login_success'] = true;
