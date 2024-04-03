@@ -68,10 +68,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const monthSelect = document.getElementById('month');
         const yearSelect = document.getElementById('year');
 
-        console.log(zipInput);
-        console.log(cardNumInput);
-        console.log(monthSelect);
-
         let isValid = true;
 
         if (zipInput.value.length < 7) {

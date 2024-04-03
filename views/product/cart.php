@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <!--    <link href="/MVC-site/views/_css/productCart.css" rel="stylesheet">-->
     <link href="/MVC-site/views/_css/product.css" rel="stylesheet">
     <script src="/MVC-site/vendor/jquery.js"></script>
     <link href="/MVC-site/vendor/fancybox/fancybox.css" rel="stylesheet">
@@ -15,33 +14,36 @@
 
 <body>
 
+<?php $products = array_values($products); ?>
 <div class="cards-container">
-    <?php foreach ($products as $product): ?>
+    <?php for ($i = 0; $i < count($products); $i++): ?>
         <div class="product-container">
             <div class="product-image">
-                <a data-fancybox="gallery" data-src="<?php echo $product['image_path']; ?>">
-                    <img alt="<?php echo $product['name']; ?>" class="image" loading="lazy"
-                         src="<?php echo $product['image_path']; ?>"/>
+                <a data-fancybox="gallery" data-src="<?php echo $products[$i]['image_path']; ?>">
+                    <img alt="<?php echo $products[$i]['name']; ?>" class="image" loading="lazy"
+                         src="<?php echo $products[$i]['image_path']; ?>"/>
                 </a>
             </div>
             <form class="product-details">
                 <div class="product-info">
-                    <h1 class="product-title"><?php echo $product['name']; ?></h1>
-                    <div class="product-price"><?php echo $product['price']; ?></div>
+                    <h1 class="product-title"><?php echo $products[$i]['name']; ?></h1>
+                    <div class="product-price"><?php echo $products[$i]['price']; ?></div>
                 </div>
-                <p class="brand-name"><?php echo $product['brand']; ?></p>
+                <p class="brand-name"><?php echo $products[$i]['brand']; ?></p>
                 <div class="selected-size">
-                    <?php foreach ($product['sizes'] as $size): ?>
-                        <input id="size-<?php echo $product['id'] . '-' . $size; ?>"
-                               name="size-<?php echo $product['id']; ?>" type="radio" value="<?php echo $size; ?>"/>
-                        <label for="size-<?php echo $product['id'] . '-' . $size; ?>"><?php echo $size; ?></label>
+                    <?php foreach ($products[$i]['sizes'] as $size): ?>
+                        <input id="size-<?php echo $products[$i]['id'] . '-' . $size; ?>"
+                               name="size-<?php echo $products[$i]['id']; ?>" type="radio"
+                               value="<?php echo $size; ?>"/>
+                        <label for="size-<?php echo $products[$i]['id'] . '-' . $size; ?>">
+                            <?php echo $size; ?></label>
                     <?php endforeach; ?>
                 </div>
                 <div class="actions">
                     <div class="buttons">
                         <?php if ($isCatalog): ?>
                             <?php if (isset($_SESSION['login_success']) && $_SESSION['login_success'] === true): ?>
-                                <button onclick="addToCart(<?php echo $product['id']; ?>)" class="add-to-cart"
+                                <button onclick="addToCart(<?php echo $products[$i]['id']; ?>)" class="add-to-cart"
                                         type="button" title="Добавить в корзину">
                                     <i class="fas fa-shopping-cart"></i>
                                 </button>
@@ -94,12 +96,11 @@
                             }
                         });
                     }
-
                 </script>
             </form>
         </div>
-    <?php endforeach; ?>
+    <?php endfor; ?>
 </div>
-
 </body>
 </html>
+
