@@ -13,7 +13,7 @@ body {
     overflow: hidden;
     margin: 10px auto;
     max-height: 220px;
-    max-width: 800px;
+    width: 800px;
 }
 
 .product-image {
@@ -267,6 +267,10 @@ img.image {
     text-align: left;
 }
 
+textarea {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .product-info {
         align-items: normal;
@@ -290,5 +294,9 @@ img.image {
     img.image {
         margin: 0;
         padding: 0;
+    }
+
+    .product-container {
+        width: 95%;
     }
 }

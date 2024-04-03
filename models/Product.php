@@ -10,8 +10,7 @@ class Product
     {
         $this->db = $db;
     }
-
-    // Функция для поиска имени бренда по его ID
+    
 
     public static function addProduct($name, $price, $gender, $brand_id, $image_path)
     {
@@ -26,12 +25,30 @@ class Product
             $stmt->bindValue(':brand_id', $brand_id);
             $stmt->bindValue(':image_path', $image_path);
             $stmt->execute();
-            return true;
+            return $pdo->lastInsertId();
         } catch (PDOException $e) {
             error_log("Ошибка добавления товара: " . $e->getMessage(), 0);
             return false;
         }
     }
+
+    public static function addProductSize($product_id, $size_id)
+    {
+        global $pdo;
+
+        try {
+            $query = "INSERT INTO product_sizes (product_id, size_id) VALUES (:product_id, :size_id)";
+            $stmt = $pdo->prepare($query);
+            $stmt->bindValue(':product_id', $product_id);
+            $stmt->bindValue(':size_id', $size_id);
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            error_log("Ошибка добавления размера: " . $e->getMessage(), 0);
+            return false;
+        }
+    }
+
 
     public static function addBrand($name)
     {

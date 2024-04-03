@@ -49,7 +49,6 @@ class CatalogController
 
         $productId = $_POST['productId'];
 
-        header("Location: /MVC-site/$productId");
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['productId'])) {
             if (!isset($_SESSION['user_id'])) {
@@ -75,6 +74,7 @@ class CatalogController
             // Вызовите метод addToCart, передав productId
             $result = $cart->addToCart($userCartId, $productId);
 
+            header("Location: /MVC-site/cart");
             // Отправьте ответ клиенту
             if ($result) {
 

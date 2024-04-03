@@ -64,7 +64,6 @@
         <!--        TO DO: Здесь с сервера должны заполненные карточки должны отображаться-->
         <?php include ROOT . '/views/product/cart.php'; ?>
     </div>
-    <!--    TO DO: Пагинация страниц-->
 </div>
 </body>
 </html>

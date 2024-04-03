@@ -59,7 +59,7 @@
     </div>
     <div class="cards-container">
         <!--        TO DO Здесь карточки товаров предыдущих заказов-->
-        <?php include ROOT . '/views/product/cart.php'; ?>
+        <!--        --><?php //include ROOT . '/views/product/cart.php'; ?>
     </div>
 </div>
 <?php

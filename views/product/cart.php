@@ -30,7 +30,8 @@
                     <div class="product-price"><?php echo $products[$i]['price']; ?></div>
                 </div>
                 <p class="brand-name"><?php echo $products[$i]['brand']; ?></p>
-                <textarea class="brand-name" name="productId" id="productId"><?php echo $products[$i]['id']; ?></textarea>
+                <textarea class="brand-name" name="productId"
+                          id="productId"><?php echo $products[$i]['id']; ?></textarea>
                 <div class="selected-size">
                     <?php foreach ($products[$i]['sizes'] as $size): ?>
                         <input id="size-<?php echo $products[$i]['id'] . '-' . $size; ?>"
@@ -44,8 +45,10 @@
                     <div class="buttons">
                         <?php if ($isCatalog): ?>
                             <?php if (isset($_SESSION['login_success']) && $_SESSION['login_success'] === true): ?>
-                                <button type="submit" class="button" title="Добавить в корзину">Добавить в корзину</button>
+                                <button type="submit" class="add-to-cart" title="Добавить в корзину">
                                     <i class="fas fa-shopping-cart"></i>
+                                </button>
+                                <i class="fas fa-shopping-cart"></i>
                                 </button>
                             <?php else: ?>
                                 <button onclick="redirectToRegistration()" class="add-to-cart" type="button"
