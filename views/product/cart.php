@@ -24,12 +24,17 @@
                          src="<?php echo $products[$i]['image_path']; ?>"/>
                 </a>
             </div>
-            <form class="product-details">
+            <form class="product-details" action="/MVC-site/addToCart" method="POST">
                 <div class="product-info">
                     <h1 class="product-title"><?php echo $products[$i]['name']; ?></h1>
                     <div class="product-price"><?php echo $products[$i]['price']; ?></div>
                 </div>
+<<<<<<< Updated upstream
                 <p class="brand-name"><?php echo $products[$i]['brand']; ?></p>
+=======
+                <p class="brand-name"><?php echo $product['brand']; ?></p>
+                <textarea class="brand-name" name="productId" id="productId">товар: <?php echo $product['id']; ?></textarea>
+>>>>>>> Stashed changes
                 <div class="selected-size">
                     <?php foreach ($products[$i]['sizes'] as $size): ?>
                         <input id="size-<?php echo $products[$i]['id'] . '-' . $size; ?>"
@@ -43,10 +48,14 @@
                     <div class="buttons">
                         <?php if ($isCatalog): ?>
                             <?php if (isset($_SESSION['login_success']) && $_SESSION['login_success'] === true): ?>
+<<<<<<< Updated upstream
                                 <button onclick="addToCart(<?php echo $products[$i]['id']; ?>)" class="add-to-cart"
                                         type="button" title="Добавить в корзину">
                                     <i class="fas fa-shopping-cart"></i>
                                 </button>
+=======
+                                <button type="submit" class="button" title="Добавить в корзину">Добавить в корзину</button>
+>>>>>>> Stashed changes
                             <?php else: ?>
                                 <button onclick="redirectToRegistration()" class="add-to-cart" type="button"
                                         title="Добавить в корзину">
@@ -69,7 +78,7 @@
                     function addToCart(productId) {
                         $.ajax({
                             type: 'POST',
-                            url: 'MVC-site/AddToCart',
+                            url: '/MVC-site/addToCart',
                             data: {productId: productId},
                             success: function (response) {
                                 alert('Товар добавлен в корзину!');

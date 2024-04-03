@@ -11,7 +11,7 @@ return array(
     'MVC-site/updateProfile' => 'Profile/UpdateProfile',
     'MVC-site/logout' => 'Access/Logout',
     'MVC-site/order' => 'Order/Index',
-    'MVC-site/AddToCart' => 'Catalog/AddToCart',
+    'MVC-site/addToCart' => 'Catalog/AddToCart',
     'MVC-site/admin' => 'Admin/Index',
     'MVC-site/addProduct' => 'Product/AddProduct',
 

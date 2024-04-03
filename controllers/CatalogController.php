@@ -51,6 +51,7 @@ class CatalogController
             if (!isset($_SESSION['user_id'])) {
                 return;
             }
+
             $productId = $_POST['productId'];
 
             $userId = $_SESSION['user_id'];
@@ -72,7 +73,7 @@ class CatalogController
 
             // Отправьте ответ клиенту
             if ($result) {
-                echo json_encode(['success' => true]);
+
             } else {
                 echo json_encode(['success' => false, 'error' => 'Ошибка при добавлении товара в корзину']);
             }

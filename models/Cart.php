@@ -29,11 +29,11 @@ class Cart
         }
     }
 
-    public function addToCart($cartId, $productId)
+    public function addToCart($cartId, $productId): bool
     {
         try {
             // Добавляем продукт в корзину
-            $query = "INSERT INTO carts_has_products (cart_id, product_id) VALUES (:cart_id, :product_id)";
+            $query = "INSERT INTO cart_has_products (cart_id, product_id) VALUES (:cart_id, :product_id)";
             $stmt = $this->pdo->prepare($query);
             $stmt->bindParam(':cart_id', $cartId, PDO::PARAM_INT);
             $stmt->bindParam(':product_id', $productId, PDO::PARAM_INT);
@@ -51,7 +51,7 @@ class Cart
     {
         try {
             // Удаляем продукт из корзины
-            $query = "DELETE FROM carts_has_products WHERE cart_id = :cart_id AND product_id = :product_id";
+            $query = "DELETE FROM cart_has_products WHERE cart_id = :cart_id AND product_id = :product_id";
             $stmt = $this->pdo->prepare($query);
             $stmt->bindParam(':cart_id', $cartId, PDO::PARAM_INT);
             $stmt->bindParam(':product_id', $productId, PDO::PARAM_INT);
@@ -65,20 +65,39 @@ class Cart
         }
     }
 
+    // Метод в классе Cart для получения списка продуктов в корзине по ее ID
     public function getProductsInCart($cartId)
     {
         try {
-            // Получаем список продуктов в корзине по её ID
-            $query = "SELECT product_id FROM carts_has_products WHERE cart_id = :cart_id";
+            // Подготавливаем SQL-запрос для получения списка продуктов в корзине по ее ID
+            $query = "SELECT p.* FROM products p INNER JOIN cart_has_products chp ON p.id = chp.product_id WHERE chp.cart_id = :cart_id";
             $stmt = $this->pdo->prepare($query);
             $stmt->bindParam(':cart_id', $cartId, PDO::PARAM_INT);
             $stmt->execute();
 
-            // Возвращаем массив с ID продуктов в корзине
-            return $stmt->fetchAll(PDO::FETCH_COLUMN);
+            // Возвращаем массив с данными о продуктах
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             // Обработка ошибки получения списка продуктов в корзине
             error_log("Ошибка получения списка продуктов в корзине: " . $e->getMessage(), 0);
+            return [];
+        }
+    }
+
+    public function getProductById($productId)
+    {
+        try {
+            // Подготавливаем SQL-запрос для получения данных о продукте по его ID
+            $query = "SELECT * FROM products WHERE id = :product_id";
+            $stmt = $this->pdo->prepare($query);
+            $stmt->bindParam(':product_id', $productId, PDO::PARAM_INT);
+            $stmt->execute();
+
+            // Возвращаем ассоциативный массив с данными о продукте
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            // Обработка ошибки получения данных о продукте
+            error_log("Ошибка получения данных о продукте: " . $e->getMessage(), 0);
             return [];
         }
     }
@@ -87,7 +106,7 @@ class Cart
     {
         try {
             // Удаляем все продукты из корзины по её ID
-            $query = "DELETE FROM carts_has_products WHERE cart_id = :cart_id";
+            $query = "DELETE FROM cart_has_products WHERE cart_id = :cart_id";
             $stmt = $this->pdo->prepare($query);
             $stmt->bindParam(':cart_id', $cartId, PDO::PARAM_INT);
             $stmt->execute();
@@ -104,7 +123,7 @@ class Cart
     {
         try {
             // Получаем общую сумму продуктов в корзине по её ID
-            $query = "SELECT SUM(price) AS total FROM products WHERE id IN (SELECT product_id FROM carts_has_products WHERE cart_id = :cart_id)";
+            $query = "SELECT SUM(price) AS total FROM products WHERE id IN (SELECT product_id FROM cart_has_products WHERE cart_id = :cart_id)";
             $stmt = $this->pdo->prepare($query);
             $stmt->bindParam(':cart_id', $cartId, PDO::PARAM_INT);
             $stmt->execute();
