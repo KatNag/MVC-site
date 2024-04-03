@@ -47,6 +47,10 @@ class CatalogController
     {
         global $pdo;
 
+        $productId = $_POST['productId'];
+
+        header("Location: /MVC-site/$productId");
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['productId'])) {
             if (!isset($_SESSION['user_id'])) {
                 return;

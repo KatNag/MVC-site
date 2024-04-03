@@ -30,7 +30,7 @@
                     <div class="product-price"><?php echo $products[$i]['price']; ?></div>
                 </div>
                 <p class="brand-name"><?php echo $products[$i]['brand']; ?></p>
-                <textarea class="brand-name" name="productId" id="productId">товар: <?php echo $products[$i]['id']; ?></textarea>
+                <textarea class="brand-name" name="productId" id="productId"><?php echo $products[$i]['id']; ?></textarea>
                 <div class="selected-size">
                     <?php foreach ($products[$i]['sizes'] as $size): ?>
                         <input id="size-<?php echo $products[$i]['id'] . '-' . $size; ?>"
