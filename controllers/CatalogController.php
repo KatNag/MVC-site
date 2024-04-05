@@ -75,6 +75,7 @@ class CatalogController
             // Вызовите метод addToCart, передав productId
             $result = $cart->addToCart($userCartId, $productId);
 
+            header("Location: /MVC-site/cart");
             // Отправьте ответ клиенту
             if ($result) {
 
