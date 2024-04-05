@@ -56,4 +56,45 @@ class CartController
         include($_SERVER['DOCUMENT_ROOT'] . '/MVC-site/views/cart/index.php');
         return true;
     }
+
+    public function actionRemoveToCart()
+    {
+        global $pdo;
+
+        $productId = $_POST['productId'];
+
+        header("Location: /MVC-site/cart");
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['productId'])) {
+            if (!isset($_SESSION['user_id'])) {
+                return;
+            }
+
+            $productId = $_POST['productId'];
+
+            $userId = $_SESSION['user_id'];
+            // Создаем экземпляр класса Cart для работы с корзиной
+            $cart = new Cart($pdo);
+
+            // Получаем информацию о корзине текущего пользователя
+            $userCartId = $cart->getUserCartId($userId);
+
+            // Если у пользователя нет корзины, создаем новую
+            if (!$userCartId) {
+                $cart->createCart($userId);
+                // Получаем информацию о только что созданной корзине
+                $userCartId = $cart->getUserCartId($userId);
+            }
+
+            // Вызовите метод addToCart, передав productId
+            $result = $cart->removeFromCart($userCartId, $productId);
+
+            // Отправьте ответ клиенту
+            if ($result) {
+
+            } else {
+                echo json_encode(['success' => false, 'error' => 'Ошибка при добавлении товара в корзину']);
+            }
+        }
+    }
 }

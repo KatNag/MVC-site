@@ -12,6 +12,7 @@ return array(
     'MVC-site/logout' => 'Access/Logout',
     'MVC-site/order' => 'Order/Index',
     'MVC-site/addToCart' => 'Catalog/AddToCart',
+    'MVC-site/removeToCart' => 'Cart/RemoveToCart',
     'MVC-site/admin' => 'Admin/Index',
     'MVC-site/addProduct' => 'Product/AddProduct',
 

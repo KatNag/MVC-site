@@ -24,8 +24,8 @@
                          src="<?php echo $products[$i]['image_path']; ?>"/>
                 </a>
             </div>
-            <form class="product-details" action="/MVC-site/addToCart" method="POST">
-                <div class="product-info">
+            <form class="product-details" action="<?php echo $isCatalog ? '/MVC-site/addToCart' : '/MVC-site/removeToCart'; ?>" method="POST">
+            <div class="product-info">
                     <h1 class="product-title"><?php echo $products[$i]['name']; ?></h1>
                     <div class="product-price"><?php echo $products[$i]['price']; ?></div>
                 </div>
@@ -54,7 +54,7 @@
                                 </button>
                             <?php endif; ?>
                         <?php else: ?>
-                            <button class="delete-from-bag" type="button" title="Удалить из корзины">
+                            <button type="submit" class="button" title="Удалить из корзины">
                                 <i class="fas fa-trash"></i>
                             </button>
                         <?php endif; ?>

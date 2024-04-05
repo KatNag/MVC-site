@@ -47,6 +47,24 @@ class Cart
         }
     }
 
+    public function removeFromCart($cartId, $productId): bool
+    {
+        try {
+            // Удаляем продукт из корзины
+            $query = "DELETE FROM cart_has_products WHERE cart_id = :cart_id AND product_id = :product_id";
+            $stmt = $this->pdo->prepare($query);
+            $stmt->bindParam(':cart_id', $cartId, PDO::PARAM_INT);
+            $stmt->bindParam(':product_id', $productId, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return true;
+        } catch (PDOException $e) {
+            // Обработка ошибки удаления продукта из корзины
+            error_log("Ошибка удаления продукта из корзины: " . $e->getMessage(), 0);
+            return false;
+        }
+    }
+
     public function removeProductFromCart($cartId, $productId)
     {
         try {

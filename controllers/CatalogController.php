@@ -49,7 +49,7 @@ class CatalogController
 
         $productId = $_POST['productId'];
 
-        header("Location: /MVC-site/$productId");
+        header("Location: /MVC-site/catalog");
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['productId'])) {
             if (!isset($_SESSION['user_id'])) {
