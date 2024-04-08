@@ -15,6 +15,7 @@ return array(
     'MVC-site/removeToCart' => 'Cart/RemoveToCart',
     'MVC-site/admin' => 'Admin/Index',
     'MVC-site/addProduct' => 'Product/AddProduct',
+    'MVC-site/sortProducts' => 'Catalog/SortProducts',
 
     '(^.+$)' => 'Main/index'
 );

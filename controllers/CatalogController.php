@@ -43,6 +43,63 @@ class CatalogController
         return true;
     }
 
+    public static function actionSortProducts()
+    {
+        global $pdo;
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $gender = $_POST['gender-filter'];
+            $price = $_POST['price-range'];
+            $size = $_POST['size-filter'];
+            $sort = $_POST['sort-options'];
+
+            if ($sort==='price-low') {
+                $sort=1;
+            } elseif ($sort==='price-high') {
+                $sort=2;
+            }
+
+            //header("Location: /MVC-site/$gender");
+
+            //$sort_products = Product::sortProducts($gender, $price, $size, $sort);
+            $products = Catalog::sortProducts($gender, $price, $size, $sort);
+
+            if (!$products) {
+            echo "Ошибка загрузки данных о продуктах";
+            return false;
+            }
+
+            // Создаем экземпляр класса Product для доступа к методу findBrandNameById
+            $productObj = new Product($pdo);
+
+            // Для каждого продукта получаем имя бренда и добавляем его в массив данных
+            foreach ($products as &$product) {
+                $product['brand'] = $productObj->findBrandNameById($product['brand_id']);
+            }
+
+            // Для каждого продукта получаем размеры и добавляем их в массив данных о продукте
+            foreach ($products as &$product) {
+                $product['sizes'] = Product::getProductSizes($product['id'], $pdo);
+            }
+
+            $isCatalog = true;
+
+            $pageTitle = "Каталог";
+            $pageContent = [
+            'header' => ROOT . '/views/header/header.php',
+            'content' => ROOT . '/views/catalog/catalog.php',
+            'footer' => ROOT . '/views/footer/footer.php',
+            'products' => $products,
+            'isCatalog' => $isCatalog
+            ];
+
+            $sizes = Product::getAllSizes();
+
+            include($_SERVER['DOCUMENT_ROOT'] . '/MVC-site/views/catalog/index.php');
+            return true;
+        }
+    }
+
     public function actionAddToCart()
     {
         global $pdo;

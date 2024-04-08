@@ -440,6 +440,113 @@ ALTER TABLE `users`
   ADD CONSTRAINT `fk_role_id` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);
 COMMIT;
 
+delimiter //
+CREATE PROCEDURE FILTER_SORT (gender varchar(3), price double, size int, sort int)
+BEGIN
+	IF gender = 'м' OR gender = 'ж' THEN
+        IF price = 0 THEN
+            IF size = 0 THEN
+                IF sort = 1 THEN
+                    SELECT * FROM products WHERE products.gender = gender ORDER BY products.price ASC;
+                ELSEIF sort = 2 THEN
+                    SELECT * FROM products WHERE products.gender = gender ORDER BY products.price DESC;
+                ELSE
+                    SELECT * FROM products WHERE products.gender = gender;
+                END IF;
+			ELSE
+                IF sort = 1 THEN
+                    SELECT * FROM products WHERE (products.gender = gender AND
+								products.id IN (SELECT product_sizes.product_id FROM product_sizes where product_sizes.size_id = size)) 
+								ORDER BY products.price ASC;
+				ELSEIF sort = 2 THEN
+                    SELECT * FROM products WHERE (products.gender = gender AND
+								products.id IN (SELECT product_sizes.product_id FROM product_sizes where product_sizes.size_id = size)) 
+								ORDER BY products.price DESC;
+                ELSE
+                    SELECT * FROM products WHERE (products.gender = gender AND
+								products.id IN (SELECT product_sizes.product_id FROM product_sizes where product_sizes.size_id = size));
+                END IF;
+		    END IF;
+		ELSE
+            IF size = 0 THEN
+                IF sort = 1 THEN
+                    SELECT * FROM products WHERE (products.gender = gender AND products.price < price) ORDER BY products.price ASC;
+                ELSEIF sort = 2 THEN
+                    SELECT * FROM products WHERE (products.gender = gender AND products.price < price) ORDER BY products.price DESC;
+                ELSE
+                    SELECT * FROM products WHERE (products.gender = gender AND products.price < price);
+                END IF;
+			ELSE
+                IF sort = 1 THEN
+                    SELECT * FROM products WHERE (products.gender = gender AND
+                                products.price < price AND
+								products.id IN (SELECT product_sizes.product_id FROM product_sizes where product_sizes.size_id = size)) 
+								ORDER BY products.price ASC;
+				ELSEIF sort = 2 THEN
+                    SELECT * FROM products WHERE (products.gender = gender AND
+                                products.price < price AND
+								products.id IN (SELECT product_sizes.product_id FROM product_sizes where product_sizes.size_id = size)) 
+								ORDER BY products.price DESC;
+                ELSE
+                    SELECT * FROM products WHERE (products.gender = gender AND
+                                products.price < price AND
+								products.id IN (SELECT product_sizes.product_id FROM product_sizes where product_sizes.size_id = size));
+                END IF;
+		    END IF;
+		END IF;
+	ELSE
+        IF price = 0 THEN
+            IF size = 0 THEN
+                IF sort = 1 THEN
+                    SELECT * FROM products ORDER BY products.price ASC;
+                ELSEIF sort = 2 THEN
+                    SELECT * FROM products ORDER BY products.price DESC;
+                ELSE
+                    SELECT * FROM products;
+                END IF;
+			ELSE
+                IF sort = 1 THEN
+                    SELECT * FROM products WHERE (
+								products.id IN (SELECT product_sizes.product_id FROM product_sizes where product_sizes.size_id = size)) 
+								ORDER BY products.price ASC;
+				ELSEIF sort = 2 THEN
+                    SELECT * FROM products WHERE (
+								products.id IN (SELECT product_sizes.product_id FROM product_sizes where product_sizes.size_id = size)) 
+								ORDER BY products.price DESC;
+                ELSE
+                    SELECT * FROM products WHERE (
+								products.id IN (SELECT product_sizes.product_id FROM product_sizes where product_sizes.size_id = size));
+                END IF;
+		    END IF;
+		ELSE
+            IF size = 0 THEN
+                IF sort = 1 THEN
+                    SELECT * FROM products WHERE products.price < price ORDER BY products.price ASC;
+                ELSEIF sort = 2 THEN
+                    SELECT * FROM products WHERE products.price < price ORDER BY products.price DESC;
+                ELSE
+                    SELECT * FROM products WHERE products.price < price;
+                END IF;
+			ELSE
+               IF sort = 1 THEN
+                    SELECT * FROM products WHERE (products.price < price AND
+								products.id IN (SELECT product_sizes.product_id FROM product_sizes where product_sizes.size_id = size)) 
+								ORDER BY products.price ASC;
+				ELSEIF sort = 2 THEN
+                    SELECT * FROM products WHERE (products.price < price AND
+								products.id IN (SELECT product_sizes.product_id FROM product_sizes where product_sizes.size_id = size)) 
+								ORDER BY products.price DESC;
+                ELSE
+                    SELECT * FROM products WHERE (products.price < price AND
+								products.id IN (SELECT product_sizes.product_id FROM product_sizes where product_sizes.size_id = size));
+                END IF;
+		    END IF;
+		END IF;
+    END IF;
+END;//
+
+delimiter ;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
