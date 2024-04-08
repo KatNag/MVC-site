@@ -24,7 +24,7 @@
 
         <div class="filter-group">
             <label for="price-range">Цена:</label>
-            <input type="text" name="price-range" id="price-range"  placeholder="До" oninput="filterPriceInput(this)"/>
+            <input type="text" name="price-range" id="price-range" placeholder="До" oninput="filterPriceInput(this)"/>
         </div>
 
         <div class=" filter-group">
@@ -51,17 +51,15 @@
         <div class="buttons">
             <button class="confirm-button" type="submit">
                 <i class="fas fa-check"></i>
-                <!--                TO DO: реакции на сортировку и фильтры-->
             </button>
 
             <button class="clear-button" type="submit" onclick="clearFilters()">
                 <i class="fas fa-trash"></i>
-                <!--                TO DO: убрать на сортировку и фильтры-->
             </button>
         </div>
     </div>
     <div class="cards-container">
-        <!--        TO DO: Здесь с сервера должны заполненные карточки должны отображаться-->
+        <?php include ROOT . '/views/product/one.php'; ?>
         <?php include ROOT . '/views/product/cart.php'; ?>
     </div>
 </form>
@@ -138,15 +136,15 @@
         });
 
         priceRange.addEventListener('input', function () {
-            setCookie('priceRangeValue', this.value, {expires: 3600}); // Сохраняем на 1 час
+            setCookie('priceRangeValue', this.value, {expires: 3600});
         });
 
         sizeFilter.addEventListener('change', function () {
-            setCookie('sizeFilterValue', this.value, {expires: 3600}); // Сохраняем на 1 час
+            setCookie('sizeFilterValue', this.value, {expires: 3600});
         });
 
         sortOptions.addEventListener('change', function () {
-            setCookie('sortOptionsValue', this.value, {expires: 3600}); // Сохраняем на 1 час
+            setCookie('sortOptionsValue', this.value, {expires: 3600});
         });
     };
 </script>

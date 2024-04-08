@@ -17,7 +17,7 @@ body {
 }
 
 .product-image {
-    /*flex: none;*/
+    flex: none;
     width: 40%;
     position: relative;
     cursor: pointer;

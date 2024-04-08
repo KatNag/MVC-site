@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="/MVC-site/views/_css/cart.css">
     <link rel="stylesheet" href="/MVC-site/views/_css/payment.css">
-    
+
     <script src="/MVC-site/views/_js/paymentModal.js"></script>
     <script src="/MVC-site/views/_js/paymentFormat.js"></script>
 </head>
@@ -19,7 +19,6 @@
         <p>Итоговая стоимость: ₽<span id="total-price">0</span></p>
 
         <button class="payment-button" id="payment-button" onclick="handlePaymentButtonClick()">Оплатить</button>
-        <!--        TO DO-->
     </div>
     <div class="cards-container">
         <?php include ROOT . '/views/product/cart.php'; ?>

@@ -25,7 +25,9 @@
                 </a>
             </div>
             <form class="product-details" action="<?php echo $isCatalog ? '/MVC-site/addToCart' : '/MVC-site/removeToCart'; ?>" method="POST">
-            <div class="product-info">
+            <form class="product-details"
+                  action="<?php echo $isCatalog ? '/MVC-site/addToCart' : '/MVC-site/removeToCart'; ?>" method="POST">
+                <div class="product-info">
                     <h1 class="product-title"><?php echo $products[$i]['name']; ?></h1>
                     <div class="product-price"><?php echo $products[$i]['price']; ?></div>
                 </div>
@@ -48,8 +50,8 @@
                                 <button type="submit" class="add-to-cart" title="Добавить в корзину">
                                     <i class="fas fa-shopping-cart"></i>
                                 </button>
-                                <i class="fas fa-shopping-cart"></i>
-                                </button>
+                                <!--                                <i class="fas fa-shopping-cart"></i>-->
+                                <!--                                </button>-->
                             <?php else: ?>
                                 <button onclick="redirectToRegistration()" class="add-to-cart" type="button"
                                         title="Добавить в корзину">
@@ -57,23 +59,21 @@
                                 </button>
                             <?php endif; ?>
                         <?php else: ?>
-                            <button type="submit" class="button" title="Удалить из корзины">
+                            <button type="submit" class="delete-from-bag" title="Удалить из корзины">
                                 <i class="fas fa-trash"></i>
                             </button>
                         <?php endif; ?>
                     </div>
                 </div>
-
-                <script>
-                    function redirectToRegistration() {
-                        window.location.href = '/MVC-site/access';
-                    }
-
-                </script>
             </form>
         </div>
     <?php endfor; ?>
 </div>
+<script>
+    function redirectToRegistration() {
+        window.location.href = '/MVC-site/access';
+    }
+</script>
 </body>
 </html>
 
