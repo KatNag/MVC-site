@@ -174,4 +174,29 @@ class Product
         }
     }
 
+    public static function findSizeIdByScale($sizeScale)
+    {
+        global $pdo;
+
+        try {
+            // Выполняем SQL запрос для получения id размера по его размеру
+            $sql = "SELECT id FROM sizes WHERE scale = :sizeScale";
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':sizeScale', $sizeScale, PDO::PARAM_INT);
+            $stmt->execute();
+
+            // Получаем результат запроса
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            // Возвращаем id размера, если оно найдено
+            if ($result) {
+                return $result['id'];
+            } else {
+                return null; // Если размер не найден
+            }
+        } catch (PDOException $e) {
+            error_log("Ошибка получения id размера" . $e->getMessage(), 0);
+            return [];
+        }
+    }
 }

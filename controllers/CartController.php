@@ -36,10 +36,12 @@ class CartController
                 $product['brand'] = $productObj->findBrandNameById($product['brand_id']);
             }
 
-            // Для каждого продукта получаем размеры и добавляем их в массив данных о продукте
+            // to dol: Для каждого продукта получаем размеры и добавляем их в массив данных о продукте
             foreach ($products as &$product) {
                 $product['sizes'] = Product::getProductSizes($product['id'], $pdo);
             }
+
+
 
             $isCatalog = false;
 

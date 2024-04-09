@@ -114,6 +114,12 @@ class CatalogController
             }
 
             $productId = $_POST['productId'];
+            $productObj = new Product($pdo);
+            $sizeScale = $_POST['size-' . $productId];
+            $sizeScale = intval($sizeScale);
+
+            $sizeId = $productObj->findSizeIdByScale($sizeScale);
+//            header("Location: /MVC-site/$sizeId");
 
             $userId = $_SESSION['user_id'];
             // Создаем экземпляр класса Cart для работы с корзиной
@@ -130,7 +136,7 @@ class CatalogController
             }
 
             // Вызовите метод addToCart, передав productId
-            $result = $cart->addToCart($userCartId, $productId);
+            $result = $cart->addToCart($userCartId, $productId, $sizeId);
 
             header("Location: /MVC-site/cart");
             // Отправьте ответ клиенту

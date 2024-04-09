@@ -29,14 +29,15 @@ class Cart
         }
     }
 
-    public function addToCart($cartId, $productId): bool
+    public function addToCart($cartId, $productId, $sizeId): bool
     {
         try {
             // Добавляем продукт в корзину
-            $query = "INSERT INTO cart_has_products (cart_id, product_id) VALUES (:cart_id, :product_id)";
+            $query = "INSERT INTO cart_has_products (cart_id, product_id, size_id) VALUES (:cart_id, :product_id, :size_id)";
             $stmt = $this->pdo->prepare($query);
             $stmt->bindParam(':cart_id', $cartId, PDO::PARAM_INT);
             $stmt->bindParam(':product_id', $productId, PDO::PARAM_INT);
+            $stmt->bindParam(':size_id', $sizeId, PDO::PARAM_INT);
             $stmt->execute();
 
             return true;
