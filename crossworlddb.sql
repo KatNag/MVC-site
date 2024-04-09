@@ -60,10 +60,11 @@ CREATE TABLE `carts` (
 --
 -- Структура таблицы `cart_has_products`
 --
-
+DROP TABLE `cart_has_products`;
 CREATE TABLE `cart_has_products` (
   `product_id` int(11) DEFAULT NULL,
-  `cart_id` int(11) DEFAULT NULL
+  `cart_id` int(11) DEFAULT NULL,
+  `size_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -297,6 +298,28 @@ INSERT INTO `users` (`id`, `username`, `birthdate`, `registration_date`, `passwo
 (12, 'ivanAufчик', '2002-07-30', '2024-03-19 15:27:25', '$2y$10$P6yFEWZIe03Yefn/ERc43uPucbODp5mPzny4ZGYyqBPB8fapgOiqy', 'ivanpozdeev2015@gmail.com', 2, 'м'),
 (16, 'yan', '1999-02-12', '2024-03-19 17:23:38', '$2y$10$ZEdPZchdb.OYCXH4kTbwB.SZb5JXBSA0zW.WM56Zz6DnSVG.gfqQO', 'yan2015@gmail.com', 2, 'м');
 
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+--
+-- Структура таблицы `order_has_products`
+--
+DROP TABLE `order_has_products`;
+CREATE TABLE `order_has_products` (
+  `product_id` int(11) DEFAULT NULL,
+  `order_id` int(11) DEFAULT NULL,
+  `size_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Индексы сохранённых таблиц
 --
@@ -319,7 +342,8 @@ ALTER TABLE `carts`
 --
 ALTER TABLE `cart_has_products`
   ADD KEY `product_id` (`product_id`),
-  ADD KEY `cart_id` (`cart_id`);
+  ADD KEY `cart_id` (`cart_id`),
+  ADD KEY `size_id` (`size_id`);
 
 --
 -- Индексы таблицы `products`
@@ -356,7 +380,21 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`),
   ADD KEY `fk_role_id` (`role_id`);
+  
+-- Индексы таблицы `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
+--
+-- Индексы таблицы `order_has_products`
+--
+ALTER TABLE `order_has_products`
+  ADD KEY `product_id` (`product_id`),
+  ADD KEY `order_id` (`order_id`),
+  ADD KEY `size_id` (`size_id`);
+  
 --
 -- AUTO_INCREMENT для сохранённых таблиц
 --
@@ -403,6 +441,11 @@ ALTER TABLE `sizes`
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
+-- AUTO_INCREMENT для таблицы `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --
@@ -418,7 +461,8 @@ ALTER TABLE `carts`
 --
 ALTER TABLE `cart_has_products`
   ADD CONSTRAINT `cart_has_products_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
-  ADD CONSTRAINT `cart_has_products_ibfk_2` FOREIGN KEY (`cart_id`) REFERENCES `carts` (`id`);
+  ADD CONSTRAINT `cart_has_products_ibfk_2` FOREIGN KEY (`cart_id`) REFERENCES `carts` (`id`),
+  ADD CONSTRAINT `cart_has_products_ibfk_3` FOREIGN KEY (`size_id`) REFERENCES `sizes` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `products`
@@ -438,10 +482,25 @@ ALTER TABLE `product_sizes`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `fk_role_id` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);
+  
+--
+-- Ограничения внешнего ключа таблицы `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+  
+--
+-- Ограничения внешнего ключа таблицы `order_has_products`
+--
+ALTER TABLE `order_has_products`
+  ADD CONSTRAINT `order_has_products_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
+  ADD CONSTRAINT `order_has_products_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
+  ADD CONSTRAINT `order_has_products_ibfk_3` FOREIGN KEY (`size_id`) REFERENCES `sizes` (`id`);
+
 COMMIT;
 
 delimiter //
-CREATE PROCEDURE FILTER_SORT (gender varchar(3), price double, size int, sort int)
+CREATE PROCEDURE FILTER_SOFILTER_SORTFILTER_SORTRT (gender varchar(3), price double, size int, sort int)
 BEGIN
 	IF gender = 'м' OR gender = 'ж' THEN
         IF price = 0 THEN
