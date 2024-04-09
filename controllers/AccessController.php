@@ -4,13 +4,18 @@ class AccessController
 {
     public static function actionIndex()
     {
-        $pageTitle = "Вход";
-        $pageContent = [
-            'content' => ROOT . '/views/access/access.php',
-        ];
+        if (isset($_SESSION['login_success']) && $_SESSION['role_id'] == 1) {
+            header("Location: /MVC-site/catalog");
+            echo "<script>alert('Вы уже вошли');</script>";
+        } else {
+            $pageTitle = "Вход";
+            $pageContent = [
+                'content' => ROOT . '/views/access/access.php',
+            ];
 
-        include($_SERVER['DOCUMENT_ROOT'] . '/MVC-site/views/access/index.php');
-        return true;
+            include($_SERVER['DOCUMENT_ROOT'] . '/MVC-site/views/access/index.php');
+            return true;
+        }
     }
 
     public static function actionLogin()

@@ -11,8 +11,6 @@
 </head>
 
 <body>
-<!--        TO DO Заменить все на переменные, где будут данные из бд подтягиваться (в том числе выводимые размеры должны
- зависеть от того, остались ли они или нет)-->
 <div class="product-container" style="display: none;">
     <div class="product-image">
         <a data-fancybox="gallery" data-src="/MVC-site/public/images/photos/testProduct.webp">

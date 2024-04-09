@@ -49,7 +49,7 @@
         </div>
 
         <div class="buttons">
-            <button class="confirm-button" type="submit">
+            <button class="confirm-button" type="submit" onclick="saveFilters()">
                 <i class="fas fa-check"></i>
             </button>
 
@@ -129,23 +129,6 @@
         if (sortOptionsValue !== undefined) {
             sortOptions.value = sortOptionsValue;
         }
-
-        // Сохраняем значения полей формы в куки при их изменении
-        genderFilter.addEventListener('change', function () {
-            setCookie('genderFilterValue', this.value, {expires: 3600}); // Сохраняем на 1 час
-        });
-
-        priceRange.addEventListener('input', function () {
-            setCookie('priceRangeValue', this.value, {expires: 3600});
-        });
-
-        sizeFilter.addEventListener('change', function () {
-            setCookie('sizeFilterValue', this.value, {expires: 3600});
-        });
-
-        sortOptions.addEventListener('change', function () {
-            setCookie('sortOptionsValue', this.value, {expires: 3600});
-        });
     };
 </script>
 </html>

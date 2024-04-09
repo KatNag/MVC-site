@@ -173,6 +173,7 @@ img.image {
     padding-bottom: 5px;
     scrollbar-width: thin;
     scrollbar-color: #d6816f #86a6b6;
+    width: 85%;
 
     &::-webkit-scrollbar {
         width: 12px;
@@ -272,6 +273,11 @@ textarea {
 }
 
 @media (max-width: 768px) {
+
+    .cards-container {
+        width: 99%;
+    }
+
     .product-info {
         align-items: normal;
     }
@@ -289,6 +295,8 @@ textarea {
     h1.product-title,
     p.brand-name {
         font-size: 14px;
+        width: 50%;
+        overflow: auto;
     }
 
     img.image {
@@ -298,5 +306,14 @@ textarea {
 
     .product-container {
         width: 95%;
+        max-height: none;
+    }
+
+    .product-details {
+        max-width: 50%;
+    }
+
+    .size-options {
+        width: 70%;
     }
 }

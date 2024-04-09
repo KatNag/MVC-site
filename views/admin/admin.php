@@ -16,7 +16,7 @@
 <body>
 
 <section>
-    <a href="/MVC-site/">
+    <a href="/MVC-site/catalog">
         <img src="/MVC-site/public/images/logos/mainLogo.png" alt="logo">
         CrossWorld
     </a>

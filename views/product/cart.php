@@ -24,7 +24,6 @@
                          src="<?php echo $products[$i]['image_path']; ?>"/>
                 </a>
             </div>
-            <form class="product-details" action="<?php echo $isCatalog ? '/MVC-site/addToCart' : '/MVC-site/removeToCart'; ?>" method="POST">
             <form class="product-details"
                   action="<?php echo $isCatalog ? '/MVC-site/addToCart' : '/MVC-site/removeToCart'; ?>" method="POST">
                 <div class="product-info">
@@ -34,13 +33,15 @@
                 <p class="brand-name"><?php echo $products[$i]['brand']; ?></p>
                 <textarea class="brand-name" name="productId"
                           id="productId"><?php echo $products[$i]['id']; ?></textarea>
-                <div class="selected-size">
+                <div class="size-options">
                     <?php foreach ($products[$i]['sizes'] as $size): ?>
-                        <input id="size-<?php echo $products[$i]['id'] . '-' . $size; ?>"
-                               name="size-<?php echo $products[$i]['id']; ?>" type="radio"
-                               value="<?php echo $size; ?>"/>
-                        <label for="size-<?php echo $products[$i]['id'] . '-' . $size; ?>">
-                            <?php echo $size; ?></label>
+                        <div class="<?php echo $isCatalog ? 'size-selector' : 'selected-size'; ?>">
+                            <input checked id="size-<?php echo $products[$i]['id'] . '-' . $size; ?>"
+                                   name="size-<?php echo $products[$i]['id']; ?>" type="radio"
+                                   value="<?php echo $size; ?>"/>
+                            <label for="size-<?php echo $products[$i]['id'] . '-' . $size; ?>">
+                                <?php echo $size; ?></label>
+                        </div>
                     <?php endforeach; ?>
                 </div>
                 <div class="actions">

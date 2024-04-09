@@ -20,9 +20,7 @@
 
         <button class="payment-button" id="payment-button" onclick="handlePaymentButtonClick()">Оплатить</button>
     </div>
-    <div class="cards-container">
-        <?php include ROOT . '/views/product/cart.php'; ?>
-    </div>
+    <?php include ROOT . '/views/product/cart.php'; ?>
 </div>
 
 <!-- Модальное окно для формы оплаты -->

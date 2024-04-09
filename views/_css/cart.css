@@ -10,7 +10,7 @@
 .information {
     display: flex;
     flex-direction: column;
-    width: 12%;
+    /*width: 12%;*/
     background-color: rgb(246, 247, 247);
     margin-top: 10px;
     padding: 15px;
@@ -92,6 +92,12 @@ select {
         flex-direction: column;
         align-items: center;
         margin-top: 100px;
+        margin-left: 0;
+        padding: 0px;
+    }
+
+    .cards-container {
+        margin-left: 0px;
     }
 
     .filters {
@@ -101,5 +107,9 @@ select {
 
     .filter-group {
         margin-bottom: 0;
+    }
+
+    div .information {
+        width: 90%;
     }
 }
