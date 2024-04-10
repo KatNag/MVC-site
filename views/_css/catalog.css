@@ -61,11 +61,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /*margin-left: 20px;*/
 }
 
 .product-card {
     margin-bottom: 20px;
+}
+
+.sortButtons {
+    align-items: center;
 }
 
 .confirm-button,

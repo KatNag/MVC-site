@@ -53,10 +53,10 @@ class CatalogController
             $size = $_POST['size-filter'];
             $sort = $_POST['sort-options'];
 
-            if ($sort==='price-low') {
-                $sort=1;
-            } elseif ($sort==='price-high') {
-                $sort=2;
+            if ($sort === 'price-low') {
+                $sort = 1;
+            } elseif ($sort === 'price-high') {
+                $sort = 2;
             }
 
             //header("Location: /MVC-site/$gender");
@@ -65,8 +65,8 @@ class CatalogController
             $products = Catalog::sortProducts($gender, $price, $size, $sort);
 
             if (!$products) {
-            echo "Ошибка загрузки данных о продуктах";
-            return false;
+                echo "Ошибка загрузки данных о продуктах";
+                return false;
             }
 
             // Создаем экземпляр класса Product для доступа к методу findBrandNameById
@@ -86,11 +86,11 @@ class CatalogController
 
             $pageTitle = "Каталог";
             $pageContent = [
-            'header' => ROOT . '/views/header/header.php',
-            'content' => ROOT . '/views/catalog/catalog.php',
-            'footer' => ROOT . '/views/footer/footer.php',
-            'products' => $products,
-            'isCatalog' => $isCatalog
+                'header' => ROOT . '/views/header/header.php',
+                'content' => ROOT . '/views/catalog/catalog.php',
+                'footer' => ROOT . '/views/footer/footer.php',
+                'products' => $products,
+                'isCatalog' => $isCatalog
             ];
 
             $sizes = Product::getAllSizes();
@@ -98,6 +98,7 @@ class CatalogController
             include($_SERVER['DOCUMENT_ROOT'] . '/MVC-site/views/catalog/index.php');
             return true;
         }
+        return false;
     }
 
     public function actionAddToCart()

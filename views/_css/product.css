@@ -214,6 +214,7 @@ img.image {
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-left: auto;
 }
 
 .delete-from-bag i {
@@ -230,10 +231,19 @@ img.image {
     margin-top: 1.2rem;
     align-items: center;
     margin-bottom: 5px;
+    justify-content: space-between;
+}
+
+.buttons {
+    width: 100%;
+    display: flex;
     justify-content: flex-end;
+    align-items: center;
 }
 
 .buttons button {
+    display: flex;
+    align-items: center;
     height: 3rem;
     margin-right: 0.2rem;
     padding: 0 1.5rem;
@@ -260,6 +270,35 @@ img.image {
 /*.like-button:hover {*/
 /*    color: #e44d26;*/
 /*}*/
+
+/* Убираем стрелки у input[type=number] в Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Убираем стрелки у input[type=number] в Chrome и Safari */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    justify-items: left;
+    max-width: 70%;
+    /*margin-left: auto;*/
+    align-self: flex-start;
+}
+
+.quantity {
+    width: 50px;
+    font-family: "Comic Sans MS";
+    align-content: center;
+    text-align: center;
+}
 
 .brand-name {
     font-size: 1rem;

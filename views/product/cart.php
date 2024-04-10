@@ -61,14 +61,14 @@
                                 </button>
                             <?php endif; ?>
                         <?php else: ?>
-                            <button type="submit" class="delete-from-bag" title="Удалить из корзины">
-                                <i class="fas fa-trash"></i>
-                            </button>
                             <div class="quantity-selector">
                                 <button type="button" class="decrement">-</button>
                                 <input type="number" class="quantity" name="quantity" value="1" min="1">
                                 <button type="button" class="increment">+</button>
                             </div>
+                            <button type="submit" class="delete-from-bag" title="Удалить из корзины">
+                                <i class="fas fa-trash"></i>
+                            </button>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -81,10 +81,10 @@
         window.location.href = '/MVC-site/access';
     }
 </script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
 <script>
-    $(document).ready(function() {
-        $(".increment, .decrement").click(function() {
+    $(document).ready(function () {
+        $(".increment, .decrement").click(function () {
             var $quantity = $(this).siblings(".quantity");
             var currentValue = parseInt($quantity.val());
             if ($(this).hasClass("increment")) {
@@ -105,7 +105,7 @@
         // Функция для обновления итоговой стоимости
         function updateTotalPrice() {
             var totalPrice = 0;
-            $(".product-container").each(function() {
+            $(".product-container").each(function () {
                 var price = parseFloat($(this).find(".product-price").text());
                 var quantity = parseInt($(this).find(".quantity").val());
                 totalPrice += price * quantity;
@@ -116,7 +116,7 @@
         // Функция для обновления количества товаров
         function updateTotalItems() {
             var totalItems = 0;
-            $(".product-container").each(function() {
+            $(".product-container").each(function () {
                 var quantity = parseInt($(this).find(".quantity").val());
                 totalItems += quantity;
             });

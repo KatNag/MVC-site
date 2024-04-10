@@ -48,7 +48,7 @@
             </select>
         </div>
 
-        <div class="buttons">
+        <div class="sortButtons">
             <button class="confirm-button" type="submit" onclick="saveFilters()">
                 <i class="fas fa-check"></i>
             </button>
