@@ -36,12 +36,26 @@ class CartController
                 $product['brand'] = $productObj->findBrandNameById($product['brand_id']);
             }
 
+
             // to dol: Для каждого продукта получаем размеры и добавляем их в массив данных о продукте
+            $j = 0;
+            $tempProductId = 1;
             foreach ($products as &$product) {
-                $product['sizes'] = Product::getProductSizes($product['id'], $pdo);
+
+                if ($tempProductId != $product['id'])
+                {
+                    $j = 0;
+                }
+
+                $sizes = $cart->getProductSizesFromCart($userCart, $product['id']);
+                $product['sizes'] = [$sizes[$j]];
+
+                $j += 1;
+
+                $tempProductId = $product['id'];
             }
 
-
+            $countInCart = $cart->getProductCountInCart($userCart);
 
             $isCatalog = false;
 
@@ -52,7 +66,8 @@ class CartController
                 'content' => ROOT . '/views/cart/cart.php',
                 'footer' => ROOT . '/views/footer/footer.php',
                 'productsInCart' => $products,
-                //   'cartTotal' => $cartTotal,
+                'cartTotal' => $cartTotal,
+                'countInCart' => $countInCart,
                 'isCatalog' => $isCatalog
             ];
 
@@ -79,6 +94,11 @@ class CartController
             }
 
             $productId = $_POST['productId'];
+            $productObj = new Product($pdo);
+            $sizeScale = $_POST['size-' . $productId];
+            $sizeScale = intval($sizeScale);
+
+            $sizeId = $productObj->findSizeIdByScale($sizeScale);
 
             $userId = $_SESSION['user_id'];
             // Создаем экземпляр класса Cart для работы с корзиной
@@ -95,7 +115,7 @@ class CartController
             }
 
             // Вызовите метод addToCart, передав productId
-            $result = $cart->removeFromCart($userCartId, $productId);
+            $result = $cart->removeFromCart($userCartId, $productId, $sizeId);
 
             // Отправьте ответ клиенту
             if ($result) {

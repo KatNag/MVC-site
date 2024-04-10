@@ -106,8 +106,6 @@ class CatalogController
 
         $productId = $_POST['productId'];
 
-        header("Location: /MVC-site/catalog");
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['productId'])) {
             if (!isset($_SESSION['user_id'])) {
                 return;
@@ -119,7 +117,6 @@ class CatalogController
             $sizeScale = intval($sizeScale);
 
             $sizeId = $productObj->findSizeIdByScale($sizeScale);
-//            header("Location: /MVC-site/$sizeId");
 
             $userId = $_SESSION['user_id'];
             // Создаем экземпляр класса Cart для работы с корзиной
@@ -138,10 +135,10 @@ class CatalogController
             // Вызовите метод addToCart, передав productId
             $result = $cart->addToCart($userCartId, $productId, $sizeId);
 
-            header("Location: /MVC-site/cart");
+
             // Отправьте ответ клиенту
             if ($result) {
-
+                header("Location: /MVC-site/catalog");
             } else {
                 echo json_encode(['success' => false, 'error' => 'Ошибка при добавлении товара в корзину']);
             }

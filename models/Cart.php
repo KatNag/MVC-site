@@ -48,14 +48,15 @@ class Cart
         }
     }
 
-    public function removeFromCart($cartId, $productId): bool
+    public function removeFromCart($cartId, $productId, $sizeId): bool
     {
         try {
-            // Удаляем продукт из корзины
-            $query = "DELETE FROM cart_has_products WHERE cart_id = :cart_id AND product_id = :product_id";
+            // Удаляем продукт из корзины по его product_id и size_id
+            $query = "DELETE FROM cart_has_products WHERE cart_id = :cart_id AND product_id = :product_id AND size_id = :size_id";
             $stmt = $this->pdo->prepare($query);
             $stmt->bindParam(':cart_id', $cartId, PDO::PARAM_INT);
             $stmt->bindParam(':product_id', $productId, PDO::PARAM_INT);
+            $stmt->bindParam(':size_id', $sizeId, PDO::PARAM_INT);
             $stmt->execute();
 
             return true;
@@ -65,6 +66,7 @@ class Cart
             return false;
         }
     }
+
 
     public function removeProductFromCart($cartId, $productId)
     {
@@ -207,5 +209,59 @@ class Cart
             return null;
         }
     }
+
+    public function getProductSizesFromCart($cartId, $productId)
+    {
+        try {
+            // Получаем все размеры продукта из таблицы cart_has_products
+            $query = "SELECT size_id FROM cart_has_products WHERE cart_id = :cart_id AND product_id = :product_id";
+            $stmt = $this->pdo->prepare($query);
+            $stmt->bindValue(':cart_id', $cartId);
+            $stmt->bindValue(':product_id', $productId);
+            $stmt->execute();
+            $sizeIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+            // Получаем размеры по size_id из таблицы sizes
+            $sizes = [];
+            foreach ($sizeIds as $sizeId) {
+                $query = "SELECT scale FROM sizes WHERE id = :size_id";
+                $stmt = $this->pdo->prepare($query);
+                $stmt->bindValue(':size_id', $sizeId);
+                $stmt->execute();
+                $size = $stmt->fetch(PDO::FETCH_COLUMN);
+                if ($size !== false) {
+                    $sizes[] = $size;
+                }
+            }
+
+            return $sizes;
+        } catch (PDOException $e) {
+            // Обработка ошибок, например, логирование и вывод сообщения об ошибке
+            error_log("Ошибка получения размеров продукта из корзины: " . $e->getMessage(), 0);
+            return [];
+        }
+    }
+
+    public function getProductCountInCart($cartId)
+    {
+        try {
+            // Подготовка запроса для получения общего количества товаров в корзине cart_id
+            $query = "SELECT COUNT(*) AS count FROM cart_has_products WHERE cart_id = :cart_id";
+            $stmt = $this->pdo->prepare($query);
+            $stmt->bindParam(':cart_id', $cartId, PDO::PARAM_INT);
+            $stmt->execute();
+
+            // Получение результата запроса
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            // Возвращаем общее количество товаров или 0, если ничего не найдено
+            return $result['count'] ?? 0;
+        } catch (PDOException $e) {
+            // Обработка ошибки, например, логирование и вывод сообщения об ошибке
+            error_log("Ошибка при получении общего количества товаров в корзине: " . $e->getMessage(), 0);
+            return 0;
+        }
+    }
+
 
 }

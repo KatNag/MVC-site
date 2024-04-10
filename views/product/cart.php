@@ -34,15 +34,16 @@
                 <textarea class="brand-name" name="productId"
                           id="productId"><?php echo $products[$i]['id']; ?></textarea>
                 <div class="size-options">
-                    <?php foreach ($products[$i]['sizes'] as $size): ?>
+                    <?php $sizes = array_values($products[$i]['sizes']); ?>
+                    <?php for ($j = 0; $j < count($sizes); $j++): ?>
                         <div class="<?php echo $isCatalog ? 'size-selector' : 'selected-size'; ?>">
-                            <input checked id="size-<?php echo $products[$i]['id'] . '-' . $size; ?>"
+                            <input checked id="size-<?php echo $products[$i]['id'] . '-' . $sizes[$j]; ?>"
                                    name="size-<?php echo $products[$i]['id']; ?>" type="radio"
-                                   value="<?php echo $size; ?>"/>
-                            <label for="size-<?php echo $products[$i]['id'] . '-' . $size; ?>">
-                                <?php echo $size; ?></label>
+                                   value="<?php echo $sizes[$j]; ?>"/>
+                            <label for="size-<?php echo $products[$i]['id'] . '-' . $sizes[$j]; ?>">
+                                <?php echo $sizes[$j]; ?></label>
                         </div>
-                    <?php endforeach; ?>
+                    <?php endfor; ?>
                 </div>
                 <div class="actions">
                     <div class="buttons">
@@ -63,6 +64,11 @@
                             <button type="submit" class="delete-from-bag" title="Удалить из корзины">
                                 <i class="fas fa-trash"></i>
                             </button>
+                            <div class="quantity-selector">
+                                <button type="button" class="decrement">-</button>
+                                <input type="number" class="quantity" name="quantity" value="1" min="1">
+                                <button type="button" class="increment">+</button>
+                            </div>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -75,6 +81,48 @@
         window.location.href = '/MVC-site/access';
     }
 </script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(".increment, .decrement").click(function() {
+            var $quantity = $(this).siblings(".quantity");
+            var currentValue = parseInt($quantity.val());
+            if ($(this).hasClass("increment")) {
+                $quantity.val(currentValue + 1);
+            } else {
+                if (currentValue > 1) {
+                    $quantity.val(currentValue - 1);
+                }
+            }
+
+            // Обновляем итоговую стоимость
+            updateTotalPrice();
+
+            // Обновляем количество товаров
+            updateTotalItems();
+        });
+
+        // Функция для обновления итоговой стоимости
+        function updateTotalPrice() {
+            var totalPrice = 0;
+            $(".product-container").each(function() {
+                var price = parseFloat($(this).find(".product-price").text());
+                var quantity = parseInt($(this).find(".quantity").val());
+                totalPrice += price * quantity;
+            });
+            $("#total-price").text(totalPrice.toFixed(2)); // Округляем до двух знаков после запятой
+        }
+
+        // Функция для обновления количества товаров
+        function updateTotalItems() {
+            var totalItems = 0;
+            $(".product-container").each(function() {
+                var quantity = parseInt($(this).find(".quantity").val());
+                totalItems += quantity;
+            });
+            $("#total-items").text(totalItems);
+        }
+    });
+</script>
 </body>
 </html>
-

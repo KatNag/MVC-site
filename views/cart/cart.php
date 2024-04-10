@@ -15,9 +15,8 @@
 <body>
 <div class="catalog-container">
     <div class="information">
-        <p>Число товаров: <span id="total-items">0</span></p>
-        <p>Итоговая стоимость: ₽<span id="total-price">0</span></p>
-
+        <p>Число товаров: <span id="total-items"><?php echo $countInCart ?></span></p>
+        <p>Итоговая стоимость: ₽<span id="total-price"><?php echo $cartTotal ?></span></p>
         <button class="payment-button" id="payment-button" onclick="handlePaymentButtonClick()">Оплатить</button>
     </div>
     <?php include ROOT . '/views/product/cart.php'; ?>
