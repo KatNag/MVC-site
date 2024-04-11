@@ -60,7 +60,6 @@ CREATE TABLE `carts` (
 --
 -- Структура таблицы `cart_has_products`
 --
-DROP TABLE `cart_has_products`;
 CREATE TABLE `cart_has_products` (
   `product_id` int(11) DEFAULT NULL,
   `cart_id` int(11) DEFAULT NULL,
@@ -87,7 +86,6 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `price`, `name`, `brand_id`, `gender`, `image_path`) VALUES
-(1, 5000.00, 'Кроссовок', 1, 'ж', '/MVC-site/public/images/photos/testProduct.webp'),
 (2, 13990.00, 'AIR MAX SC', 3, 'ж', '/MVC-site/public/images/photos/NIKE_AIR_MAX_SC.webp'),
 (3, 9599.00, 'CLASSIC LEATHER', 5, 'ж', '/MVC-site/public/images/photos/REEBOK_CLASSIC_LEATHER.webp'),
 (4, 7999.00, 'TRACE LOW', 2, 'ж', '/MVC-site/public/images/photos/FILA_TRACE_LOW.webp'),
@@ -313,7 +311,6 @@ CREATE TABLE `orders` (
 --
 -- Структура таблицы `order_has_products`
 --
-DROP TABLE `order_has_products`;
 CREATE TABLE `order_has_products` (
   `product_id` int(11) DEFAULT NULL,
   `order_id` int(11) DEFAULT NULL,
@@ -500,7 +497,7 @@ ALTER TABLE `order_has_products`
 COMMIT;
 
 delimiter //
-CREATE PROCEDURE FILTER_SOFILTER_SORTFILTER_SORTRT (gender varchar(3), price double, size int, sort int)
+CREATE PROCEDURE FILTER_SORT (gender varchar(3), price double, size int, sort int)
 BEGIN
 	IF gender = 'м' OR gender = 'ж' THEN
         IF price = 0 THEN
