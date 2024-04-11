@@ -59,13 +59,13 @@ class CatalogController
                 $sort = 2;
             }
 
-            //header("Location: /MVC-site/$gender");
-
-            //$sort_products = Product::sortProducts($gender, $price, $size, $sort);
             $products = Catalog::sortProducts($gender, $price, $size, $sort);
 
             if (!$products) {
-                echo "Ошибка загрузки данных о продуктах";
+                echo '<script>';
+                echo 'alert("Нет товаров, удовлетворяющих выбранным критериям");';
+                echo 'window.location.href = "/MVC-site/catalog";';
+                echo '</script>';
                 return false;
             }
 
@@ -136,10 +136,12 @@ class CatalogController
             // Вызовите метод addToCart, передав productId
             $result = $cart->addToCart($userCartId, $productId, $sizeId);
 
-
             // Отправьте ответ клиенту
             if ($result) {
-                header("Location: /MVC-site/catalog");
+                echo '<script>';
+                echo 'alert("Товар успешно добавлен в корзину");';
+                echo 'window.location.href = "/MVC-site/catalog";';
+                echo '</script>';
             } else {
                 echo json_encode(['success' => false, 'error' => 'Ошибка при добавлении товара в корзину']);
             }

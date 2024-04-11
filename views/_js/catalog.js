@@ -6,15 +6,7 @@ function clearFilters() {
     document.cookie = "sortOptionsValue=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
     // Перезагрузка страницы после очистки фильтров
-    location.reload();
-
-    // Устанавливаем значения полей формы в их начальные значения
-    document.getElementById('gender-filter').value = 'all';
-    document.getElementById('price-range').value = '';
-    document.getElementById('size-filter').value = 'all';
-    document.getElementById('sort-options').value = 'price-low';
-
-    return false; // Предотвращаем выполнение дальнейшего кода
+    window.location.href = '/MVC-site/catalog';
 }
 
 function saveFilters() {
@@ -35,4 +27,27 @@ function filterPriceInput(inputElement) {
     let filteredValue = inputValue.replace(/\D/g, '');
     filteredValue = filteredValue.slice(0, 5);
     inputElement.value = filteredValue;
+}
+
+function setCookie(name, value, options = {}) {
+    options = {
+        path: '/',
+        ...options
+    };
+
+    if (options.expires instanceof Date) {
+        options.expires = options.expires.toUTCString();
+    }
+
+    let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+    for (let optionKey in options) {
+        updatedCookie += "; " + optionKey;
+        let optionValue = options[optionKey];
+        if (optionValue !== true) {
+            updatedCookie += "=" + optionValue;
+        }
+    }
+
+    document.cookie = updatedCookie;
 }

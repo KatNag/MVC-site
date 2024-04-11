@@ -52,8 +52,6 @@
                                 <button type="submit" class="add-to-cart" title="Добавить в корзину">
                                     <i class="fas fa-shopping-cart"></i>
                                 </button>
-                                <!--                                <i class="fas fa-shopping-cart"></i>-->
-                                <!--                                </button>-->
                             <?php else: ?>
                                 <button onclick="redirectToRegistration()" class="add-to-cart" type="button"
                                         title="Добавить в корзину">
