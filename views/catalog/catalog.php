@@ -37,7 +37,6 @@
                     </option>
                 <?php endforeach; ?>
             </select>
-            </select>
         </div>
 
         <div class="filter-group">
@@ -53,7 +52,7 @@
                 <i class="fas fa-check"></i>
             </button>
 
-            <button class="clear-button" type="submit" onclick="clearFilters()">
+            <button class="clear-button" type="button" onclick="clearFilters()">
                 <i class="fas fa-trash"></i>
             </button>
         </div>
