@@ -73,6 +73,10 @@ class AccessController
                 exit;
             } else {
                 echo "Ошибка при регистрации пользователя";
+                echo '<script>';
+                echo 'alert("Пользователь с таким email уже зарегистрирован");';
+                echo 'window.location.href = "/MVC-site/access";';
+                echo '</script>';
             }
         }
     }

@@ -38,15 +38,27 @@ class Access
                 $q->bindValue(':' . $field, $value);
             }
 
-            if ($q->execute()) {
-                // Если регистрация пользователя прошла успешно, создаем для него корзину
-                $userId = $pdo->lastInsertId(); // Получаем ID только что зарегистрированного пользователя
-                $cart = new Cart($pdo); // Создаем экземпляр класса Cart
-                $cart->createCart($userId); // Создаем корзину для пользователя
-                $success = true;
-            } else {
-                echo "Ошибка при выполнении запроса";
+            try {
+                if ($q->execute()) {
+                    // Если регистрация пользователя прошла успешно, создаем для него корзину
+                    $userId = $pdo->lastInsertId(); // Получаем ID только что зарегистрированного пользователя
+                    $cart = new Cart($pdo); // Создаем экземпляр класса Cart
+                    $cart->createCart($userId); // Создаем корзину для пользователя
+                    $success = true;
+                } else {
+                    echo "Ошибка при выполнении запроса";
+                }
+            } catch (PDOException $e) {
+                if ($e->getCode() == '23000') { // Код ошибки для нарушения уникальности
+                    echo '<script>';
+                    echo 'alert("Пользователь с таким email уже зарегистрирован");';
+                    echo 'window.location.href = "/MVC-site/access";';
+                    echo '</script>';
+                } else {
+                    echo "Ошибка при выполнении запроса: " . $e->getMessage();
+                }
             }
+
         } else {
             echo "Пустые пользовательские данные";
         }
