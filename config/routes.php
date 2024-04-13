@@ -16,6 +16,7 @@ return array(
     'MVC-site/admin' => 'Admin/Index',
     'MVC-site/addProduct' => 'Product/AddProduct',
     'MVC-site/sortProducts' => 'Catalog/SortProducts',
+    '/MVC-site/createOrder' => 'Order/Index',
 
     '(^.+$)' => 'Main/index'
 );

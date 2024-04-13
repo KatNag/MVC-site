@@ -9,9 +9,16 @@
 
     <link rel="stylesheet" href="/MVC-site/views/_css/profile.css">
     <script src="/MVC-site/views/_js/genderChoice.js"></script>
+    <link href="/MVC-site/views/_css/product.css" rel="stylesheet">
+    <script src="/MVC-site/vendor/jquery.js"></script>
+    <link href="/MVC-site/vendor/fancybox/fancybox.css" rel="stylesheet">
+    <script src="/MVC-site/vendor/fancybox/fancybox.js"></script>
+
+    <link rel="stylesheet" href="/MVC-site/vendor/fontawesome.css">
 </head>
 
 <body>
+<?php $products = array_values($products); ?>
 <div class="profile-container">
     <div class="information">
         <form id="update-form" class="inactive-form" action='/MVC-site/updateProfile' method="POST">
@@ -59,7 +66,46 @@
     </div>
     <div class="cards-container">
         <!--        TO DO Здесь карточки товаров предыдущих заказов-->
-        <!--        --><?php //include ROOT . '/views/product/cart.php'; ?>
+        <!--        --><?php /*//include ROOT . '/views/product/cart.php'; */?>
+        <?php for ($i = 0; $i < count($products); $i++): ?>
+            <div class="product-container">
+                <div class="product-image">
+                    <a data-fancybox="gallery" data-src="<?php echo $products[$i]['image_path']; ?>">
+                        <img alt="<?php echo $products[$i]['name']; ?>" class="image" loading="lazy"
+                             src="<?php echo $products[$i]['image_path']; ?>"/>
+                    </a>
+                </div>
+                <form class="product-details"
+                      action="/MVC-site/addToOrder" method="POST">
+                    <div class="product-info">
+                        <h1 class="product-title"><?php echo $products[$i]['name']; ?></h1>
+                        <div class="product-price"><?php echo $products[$i]['price']; ?></div>
+                    </div>
+                    <p class="brand-name"><?php echo $products[$i]['brand']; ?></p>
+                    <textarea class="brand-name" name="productId"
+                              id="productId"><?php echo $products[$i]['id']; ?></textarea>
+                    <div class="size-options">
+                        <?php $sizes = array_values($products[$i]['sizes']); ?>
+                        <?php for ($j = 0; $j < count($sizes); $j++): ?>
+                            <div class="selected-size">
+                                <input checked id="size-<?php echo $products[$i]['id'] . '-' . $sizes[$j]; ?>"
+                                       name="size-<?php echo $products[$i]['id']; ?>" type="radio"
+                                       value="<?php echo $sizes[$j]; ?>"/>
+                                <label for="size-<?php echo $products[$i]['id'] . '-' . $sizes[$j]; ?>">
+                                    <?php echo $sizes[$j]; ?></label>
+                            </div>
+                        <?php endfor; ?>
+                    </div>
+                    <div class="actions">
+                        <div class="buttons">
+                                <div class="quantity-selector">
+                                    <input type="number" class="quantity" name="quantity" value="1" min="1">
+                                </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        <?php endfor; ?>
     </div>
 </div>
 <?php

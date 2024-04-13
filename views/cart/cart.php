@@ -25,7 +25,7 @@
 <!-- Модальное окно для формы оплаты -->
 <div id="payment-form" class="modal">
     <div class="container">
-        <form action="/MVC-site/order" method="POST">
+        <form action="/MVC-site/createOrder" method="POST">
             <span class="close close-modal" onclick="closePaymentModal()"></span>
             <div class="row">
                 <div class="col">

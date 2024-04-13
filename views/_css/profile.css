@@ -303,4 +303,15 @@
         width: 40%;
     }
 
+    .cards-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 20px;
+    }
+
+    .product-card {
+        margin-bottom: 20px;
+    }
+
 }

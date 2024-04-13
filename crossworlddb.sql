@@ -308,11 +308,11 @@ CREATE TABLE `orders` (
   `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-
+ALTER TABLE orders ADD unique(user_id); 
 --
 -- Структура таблицы `order_has_products`
 --
-DROP TABLE `order_has_products`;
+#DROP TABLE `order_has_products`;
 CREATE TABLE `order_has_products` (
   `product_id` int(11) DEFAULT NULL,
   `order_id` int(11) DEFAULT NULL,
@@ -601,6 +601,13 @@ BEGIN
 		    END IF;
 		END IF;
     END IF;
+END;//
+
+CREATE PROCEDURE CREATE_ORDERS(userId int, sort int)
+BEGIN
+INSERT INTO orders (user_id) VALUES (userId);
+INSERT INTO order_has_products (product_id, order_id, size_id) VALUES (userId);
+	
 END;//
 
 delimiter ;
