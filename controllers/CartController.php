@@ -37,13 +37,11 @@ class CartController
             }
 
 
-            // to dol: Для каждого продукта получаем размеры и добавляем их в массив данных о продукте
             $j = 0;
             $tempProductId = 1;
             foreach ($products as &$product) {
 
-                if ($tempProductId != $product['id'])
-                {
+                if ($tempProductId != $product['id']) {
                     $j = 0;
                 }
 

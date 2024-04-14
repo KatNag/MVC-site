@@ -383,8 +383,8 @@ ALTER TABLE `users`
 -- Индексы таблицы `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD PRIMARY KEY (`id`);
+--   ADD KEY `user_id` (`user_id`);
 
 --
 -- Индексы таблицы `order_has_products`
@@ -603,11 +603,18 @@ BEGIN
     END IF;
 END;//
 
-CREATE PROCEDURE CREATE_ORDERS(userId int, sort int)
+CREATE PROCEDURE CREATE_ORDERS(userId int)
 BEGIN
+DECLARE orderId INT;
+DECLARE cartId INT;
+IF NOT EXISTS (SELECT * FROM orders WHERE user_id = userId) then
 INSERT INTO orders (user_id) VALUES (userId);
-INSERT INTO order_has_products (product_id, order_id, size_id) VALUES (userId);
-	
+END IF;
+SELECT id INTO orderId FROM orders WHERE user_id = userId;
+SELECT id INTO cartId FROM carts WHERE user_id = userId;
+
+INSERT INTO order_has_products (product_id, order_id, size_id) SELECT product_id, orderId, size_id FROM cart_has_products WHERE cart_id=cartId;
+DELETE FROM cart_has_products WHERE cart_id=cartId;
 END;//
 
 delimiter ;

@@ -34,18 +34,15 @@ class Profile
     {
         global $pdo;
         try {
-            // Создаем новую корзину для пользователя
             $query = "CALL CREATE_ORDERS(:userId)";
             $stmt = $pdo->prepare($query);
             $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
             $stmt->execute();
 
-            // Получаем идентификатор созданной корзины
             $orderId = $pdo->lastInsertId();
 
             return $orderId;
         } catch (PDOException $e) {
-            // Обработка ошибки создания корзины
             error_log("Ошибка создания заказов: " . $e->getMessage(), 0);
             return false;
         }
@@ -55,7 +52,7 @@ class Profile
     {
         global $pdo;
         try {
-            // Добавляем продукт в корзину
+            // Добавляем продукт в заказ
             $query = "CALL CREATE_ORDERS(:userId)";
             $stmt = $pdo->prepare($query);
             $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
@@ -63,7 +60,6 @@ class Profile
 
             return true;
         } catch (PDOException $e) {
-            // Обработка ошибки добавления продукта в корзину
             error_log("Ошибка добавления продукта в заказы: " . $e->getMessage(), 0);
             return false;
         }

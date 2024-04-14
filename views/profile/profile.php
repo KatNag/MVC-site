@@ -61,22 +61,21 @@
             <button type="button" class="button update-account-button">Обновить данные</button>
         </form>
 
-        <button type="" onclick="logoutUser()" class="button logout-button">Выйти</button>
+        <button type="button" onclick="logoutUser()" class="button logout-button">Выйти</button>
 
     </div>
     <div class="cards-container">
-        <!--        TO DO Здесь карточки товаров предыдущих заказов-->
-        <!--        --><?php /*//include ROOT . '/views/product/cart.php'; */?>
+        <h1>Ранее купленные товары</h1>
         <?php for ($i = 0; $i < count($products); $i++): ?>
             <div class="product-container">
                 <div class="product-image">
-                    <a data-fancybox="gallery" data-src="<?php echo $products[$i]['image_path']; ?>">
+                    <a data-fancybox="gallery" data-src="
+                        <?php echo $products[$i]['image_path']; ?>">
                         <img alt="<?php echo $products[$i]['name']; ?>" class="image" loading="lazy"
                              src="<?php echo $products[$i]['image_path']; ?>"/>
                     </a>
                 </div>
-                <form class="product-details"
-                      action="/MVC-site/addToOrder" method="POST">
+                <form class="product-details">
                     <div class="product-info">
                         <h1 class="product-title"><?php echo $products[$i]['name']; ?></h1>
                         <div class="product-price"><?php echo $products[$i]['price']; ?></div>
@@ -88,20 +87,15 @@
                         <?php $sizes = array_values($products[$i]['sizes']); ?>
                         <?php for ($j = 0; $j < count($sizes); $j++): ?>
                             <div class="selected-size">
-                                <input checked id="size-<?php echo $products[$i]['id'] . '-' . $sizes[$j]; ?>"
+                                <input checked id="size-
+                        <?php echo $products[$i]['id'] . '-' . $sizes[$j]; ?>"
                                        name="size-<?php echo $products[$i]['id']; ?>" type="radio"
                                        value="<?php echo $sizes[$j]; ?>"/>
-                                <label for="size-<?php echo $products[$i]['id'] . '-' . $sizes[$j]; ?>">
+                                <label for="size-
+                        <?php echo $products[$i]['id'] . '-' . $sizes[$j]; ?>">
                                     <?php echo $sizes[$j]; ?></label>
                             </div>
                         <?php endfor; ?>
-                    </div>
-                    <div class="actions">
-                        <div class="buttons">
-                                <div class="quantity-selector">
-                                    <input type="number" class="quantity" name="quantity" value="1" min="1">
-                                </div>
-                        </div>
                     </div>
                 </form>
             </div>

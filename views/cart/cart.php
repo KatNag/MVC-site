@@ -17,7 +17,9 @@
     <div class="information">
         <p>Число товаров: <span id="total-items"><?php echo $countInCart ?></span></p>
         <p>Итоговая стоимость: ₽<span id="total-price"><?php echo $cartTotal ?></span></p>
-        <button class="payment-button" id="payment-button" onclick="handlePaymentButtonClick()">Оплатить</button>
+        <button class="payment-button <?php echo $countInCart === 0 ? 'disabled' : ''; ?>" id="payment-button"
+                onclick="handlePaymentButtonClick()" <?php echo $countInCart === 0 ? 'disabled' : ''; ?>>Оплатить
+        </button>
     </div>
     <?php include ROOT . '/views/product/cart.php'; ?>
 </div>
@@ -112,8 +114,6 @@
 
             </div>
             <button type="submit" class="submitButton">Оплачено</button>
-            </button>
-            <!--            TO DO: Запись заказа в БД-->
         </form>
     </div>
 </div>
