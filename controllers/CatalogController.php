@@ -133,6 +133,13 @@ class CatalogController
                 $userCartId = $cart->getUserCartId($userId);
             }
 
+            $check = $cart->isProductInCart($userCartId, $productId, $sizeId);
+
+            if  ($check)
+            {
+                echo 'alert("Товар уже находится в вашей корзине");';
+                echo 'window.location.href = "/MVC-site/catalog";';
+            }
             // Вызовите метод addToCart, передав productId
             $result = $cart->addToCart($userCartId, $productId, $sizeId);
 

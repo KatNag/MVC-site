@@ -48,6 +48,28 @@ class Cart
         }
     }
 
+    public function isProductInCart($cartId, $productId, $sizeId): bool
+    {
+        try {
+            // Проверяем наличие продукта в корзине по productId и sizeId
+            $query = "SELECT COUNT(*) FROM cart_has_products WHERE cart_id = :cart_id AND product_id = :product_id AND size_id = :size_id";
+            $stmt = $this->pdo->prepare($query);
+            $stmt->bindParam(':cart_id', $cartId, PDO::PARAM_INT);
+            $stmt->bindParam(':product_id', $productId, PDO::PARAM_INT);
+            $stmt->bindParam(':size_id', $sizeId, PDO::PARAM_INT);
+            $stmt->execute();
+
+            $count = $stmt->fetchColumn();
+
+            // Если количество записей больше нуля, значит продукт уже есть в корзине
+            return $count > 0;
+        } catch (PDOException $e) {
+            // Обработка ошибки запроса
+            error_log("Ошибка при проверке наличия продукта в корзине: " . $e->getMessage(), 0);
+            return false;
+        }
+    }
+
     public function removeFromCart($cartId, $productId, $sizeId): bool
     {
         try {
