@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <link rel="stylesheet" href="/MVC-site/views/_css/catalog.css">
-    <link rel="stylesheet" href="/MVC-site/vendor/fontawesome.css">
-    <script src="/MVC-site/views/_js/catalog.js"></script>
+    <link rel="stylesheet" href="/pozdeev/MVC-site/views/_css/catalog.css">
+    <link rel="stylesheet" href="/pozdeev/MVC-site/vendor/fontawesome.css">
+    <script src="/pozdeev/MVC-site/views/_js/catalog.js"></script>
 </head>
 
 <body>
-<form class="catalog-container" id="catalog-container" action="/MVC-site/sortProducts" method="POST">
+<form class="catalog-container" id="catalog-container" action="/pozdeev/MVC-site/sortProducts" method="POST">
     <div class="filters">
         <div class="filter-group">
             <label for="gender-filter">Кому:</label>

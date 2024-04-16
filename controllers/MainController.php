@@ -11,7 +11,7 @@ class MainController
             'footer' => ROOT . '/views/footer/footer.php'
         ];
 
-        include($_SERVER['DOCUMENT_ROOT'] . '/MVC-site/views/main/index.php');
+        include($_SERVER['DOCUMENT_ROOT'] . '/pozdeev/MVC-site/views/main/index.php');
         return true;
     }
 }

@@ -7,21 +7,21 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Catalog</title>
 
-    <link rel="stylesheet" href="/MVC-site/views/_css/profile.css">
-    <script src="/MVC-site/views/_js/genderChoice.js"></script>
-    <link href="/MVC-site/views/_css/product.css" rel="stylesheet">
-    <script src="/MVC-site/vendor/jquery.js"></script>
-    <link href="/MVC-site/vendor/fancybox/fancybox.css" rel="stylesheet">
-    <script src="/MVC-site/vendor/fancybox/fancybox.js"></script>
+    <link rel="stylesheet" href="/pozdeev/MVC-site/views/_css/profile.css">
+    <script src="/pozdeev/MVC-site/views/_js/genderChoice.js"></script>
+    <link href="/pozdeev/MVC-site/views/_css/product.css" rel="stylesheet">
+    <script src="/pozdeev/MVC-site/vendor/jquery.js"></script>
+    <link href="/pozdeev/MVC-site/vendor/fancybox/fancybox.css" rel="stylesheet">
+    <script src="/pozdeev/MVC-site/vendor/fancybox/fancybox.js"></script>
 
-    <link rel="stylesheet" href="/MVC-site/vendor/fontawesome.css">
+    <link rel="stylesheet" href="/pozdeev/MVC-site/vendor/fontawesome.css">
 </head>
 
 <body>
 <?php $products = array_values($products); ?>
 <div class="profile-container">
     <div class="information">
-        <form id="update-form" class="inactive-form" action='/MVC-site/updateProfile' method="POST">
+        <form id="update-form" class="inactive-form" action='/pozdeev/MVC-site/updateProfile' method="POST">
             <h1>Ваши данные</h1>
             <label for="username">Имя пользователя</label>
             <input type="text" name="username" id="username" placeholder="Введите ваше имя" required=""
@@ -45,7 +45,7 @@
                     <input type="radio" name="gender" id="female"
                            value="ж"
                         <?php echo ($_SESSION['gender'] === 'ж') ? 'checked' : ''; ?>>
-                    <img src="/MVC-site/public/images/photos/womanSneaker.jpg" alt="Female">
+                    <img src="/pozdeev/MVC-site/public/images/photos/womanSneaker.jpg" alt="Female">
                     <p>Жен.</p>
                 </div>
 
@@ -53,7 +53,7 @@
                     <input type="radio" name="gender" id="male"
                            value="м"
                         <?php echo ($_SESSION['gender'] === 'м') ? 'checked' : ''; ?>>
-                    <img src="/MVC-site/public/images/photos/manSneaker.jpg" alt="Male">
+                    <img src="/pozdeev/MVC-site/public/images/photos/manSneaker.jpg" alt="Male">
                     <p>Муж.</p>
                 </div>
             </div>
@@ -115,7 +115,7 @@ if (isset($_SESSION['updateProfile_success']) && $_SESSION['updateProfile_succes
     });
 
     function logoutUser() {
-        window.location.href = '/MVC-site/logout';
+        window.location.href = '/pozdeev/MVC-site/logout';
     }
 
     function confirmUpdate() {

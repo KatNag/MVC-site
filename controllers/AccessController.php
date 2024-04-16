@@ -5,7 +5,7 @@ class AccessController
     public static function actionIndex()
     {
         if (isset($_SESSION['login_success']) && $_SESSION['role_id'] == 1) {
-            header("Location: /MVC-site/catalog");
+            header("Location: /pozdeev/MVC-site/catalog");
             echo "<script>alert('Вы уже вошли');</script>";
         } else {
             $pageTitle = "Вход";
@@ -13,7 +13,7 @@ class AccessController
                 'content' => ROOT . '/views/access/access.php',
             ];
 
-            include($_SERVER['DOCUMENT_ROOT'] . '/MVC-site/views/access/index.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/pozdeev/MVC-site/views/access/index.php');
             return true;
         }
     }
@@ -37,7 +37,7 @@ class AccessController
                 $_SESSION['birthdate'] = $user->birthdate;
                 $_SESSION['login_success'] = true;
 
-                header("Location: /MVC-site/profile");
+                header("Location: /pozdeev/MVC-site/profile");
                 exit;
             } else {
                 echo "Неправильное имя пользователя или пароль";
@@ -69,13 +69,13 @@ class AccessController
             if ($result) {
                 $_SESSION['registration_success'] = true;
                 $_SESSION['username'] = $username;
-                header("Location: /MVC-site/access");
+                header("Location: /pozdeev/MVC-site/access");
                 exit;
             } else {
                 echo "Ошибка при регистрации пользователя";
                 echo '<script>';
                 echo 'alert("Пользователь с таким email уже зарегистрирован");';
-                echo 'window.location.href = "/MVC-site/access";';
+                echo 'window.location.href = "/pozdeev/MVC-site/access";';
                 echo '</script>';
             }
         }
@@ -85,7 +85,7 @@ class AccessController
     {
         session_unset();
         session_destroy();
-        header("Location: /MVC-site/access");
+        header("Location: /pozdeev/MVC-site/access");
     }
 
 }

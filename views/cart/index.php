@@ -7,8 +7,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title><?= $pageTitle ?></title>
 
-    <link href="/MVC-site/views/_css/catalog.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="/MVC-site/public/images/logos/mainLogo.png">
+    <link href="/pozdeev/MVC-site/views/_css/catalog.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/pozdeev/MVC-site/public/images/logos/mainLogo.png">
 </head>
 
 <body>

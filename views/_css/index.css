@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Magneto';
-    src: url('/MVC-site/vendor/webfonts/magneto bold.ttf') format('truetype');
+    src: url('/pozdeev/MVC-site/vendor/webfonts/magneto bold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -118,7 +118,7 @@ h2.section-title {
 .hero-section {
     position: relative;
     height: 100vh;
-    background: url('/MVC-site/public/images/photos/mainPhoto.jpg') center/cover no-repeat;
+    background: url('/pozdeev/MVC-site/public/images/photos/mainPhoto.jpg') center/cover no-repeat;
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -263,7 +263,7 @@ article {
 .button-zone {
     text-align: center;
     margin-top: 80px;
-    background: url('/MVC-site/public/images/photos/wantThis.png') center/cover no-repeat;
+    background: url('/pozdeev/MVC-site/public/images/photos/wantThis.png') center/cover no-repeat;
     max-width: 100%;
     height: 100vh;
     display: flex;

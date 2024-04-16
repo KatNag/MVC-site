@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <title></title>
 
-    <link href="/MVC-site/views/_css/index.css" rel="stylesheet">
-    <link href="/MVC-site/vendor/fancybox/fancybox.css" rel="stylesheet">
+    <link href="/pozdeev/MVC-site/views/_css/index.css" rel="stylesheet">
+    <link href="/pozdeev/MVC-site/vendor/fancybox/fancybox.css" rel="stylesheet">
 
-    <script src="/MVC-site/vendor/jquery.js"></script>
-    <script src="/MVC-site/views/_js/counter.js"></script>
-    <script src="/MVC-site/vendor/fancybox/fancybox.js"></script>
+    <script src="/pozdeev/MVC-site/vendor/jquery.js"></script>
+    <script src="/pozdeev/MVC-site/views/_js/counter.js"></script>
+    <script src="/pozdeev/MVC-site/vendor/fancybox/fancybox.js"></script>
 
 </head>
 
@@ -55,43 +55,43 @@
 <div class="photos">
     <div class="photo_element">
         <a data-fancybox="gallery"
-           data-src="/MVC-site/public/images/photos/store1.jpg">
-            <img src="/MVC-site/public/images/photos/store1.jpg">
+           data-src="/pozdeev/MVC-site/public/images/photos/store1.jpg">
+            <img src="/pozdeev/MVC-site/public/images/photos/store1.jpg">
         </a>
     </div>
 
     <div class="photo_element">
         <a data-fancybox="gallery"
-           data-src="/MVC-site/public/images/photos/store2.jpeg">
-            <img src="/MVC-site/public/images/photos/store2.jpeg">
+           data-src="/pozdeev/MVC-site/public/images/photos/store2.jpeg">
+            <img src="/pozdeev/MVC-site/public/images/photos/store2.jpeg">
         </a>
     </div>
 
     <div class="photo_element">
         <a data-fancybox="gallery"
-           data-src="/MVC-site/public/images/photos/store3.jpg">
-            <img src="/MVC-site/public/images/photos/store3.jpg">
+           data-src="/pozdeev/MVC-site/public/images/photos/store3.jpg">
+            <img src="/pozdeev/MVC-site/public/images/photos/store3.jpg">
         </a>
     </div>
 
     <div class="photo_element">
         <a data-fancybox="gallery"
-           data-src="/MVC-site/public/images/photos/store4.jpg">
-            <img src="/MVC-site/public/images/photos/store4.jpg">
+           data-src="/pozdeev/MVC-site/public/images/photos/store4.jpg">
+            <img src="/pozdeev/MVC-site/public/images/photos/store4.jpg">
         </a>
     </div>
 
     <div class="photo_element">
         <a data-fancybox="gallery"
-           data-src="/MVC-site/public/images/photos/store5.jpg">
-            <img src="/MVC-site/public/images/photos/store5.jpg">
+           data-src="/pozdeev/MVC-site/public/images/photos/store5.jpg">
+            <img src="/pozdeev/MVC-site/public/images/photos/store5.jpg">
         </a>
     </div>
 
     <div class="photo_element">
         <a data-fancybox="gallery"
-           data-src="/MVC-site/public/images/photos/store6.jpg">
-            <img src="/MVC-site/public/images/photos/store6.jpg">
+           data-src="/pozdeev/MVC-site/public/images/photos/store6.jpg">
+            <img src="/pozdeev/MVC-site/public/images/photos/store6.jpg">
         </a>
     </div>
     <div class="clearBoth"></div>

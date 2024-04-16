@@ -25,7 +25,7 @@ class ProductController
             return false;
         }
 
-        $imagePath = '/MVC-site/public/images/photos/' . $fileName;
+        $imagePath = '/pozdeev/MVC-site/public/images/photos/' . $fileName;
 
         $name = $_POST['name'];
         $price = $_POST['price'];
@@ -48,6 +48,6 @@ class ProductController
             $productModel->addProductSize($productId, $selectedSize);
         }
 
-        header('Location: /MVC-site/admin');
+        header('Location: /pozdeev/MVC-site/admin');
     }
 }

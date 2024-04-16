@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'GTA';
-    src: url('/MVC-site/vendor/webfonts/GTA Russian.ttf') format('truetype');
+    src: url('/pozdeev/MVC-site/vendor/webfonts/GTA Russian.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -52,7 +52,7 @@
     width: 700px;
     padding: 20px;
     box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
-    background-image: url("/MVC-site/public/images/payment/donaldDuck.jpg");
+    background-image: url("/pozdeev/MVC-site/public/images/payment/donaldDuck.jpg");
     background-size: cover;
     border-radius: 50px;
 }

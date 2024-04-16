@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <link href="/MVC-site/views/_css/product.css" rel="stylesheet">
-    <script src="/MVC-site/vendor/jquery.js"></script>
-    <link href="/MVC-site/vendor/fancybox/fancybox.css" rel="stylesheet">
-    <script src="/MVC-site/vendor/fancybox/fancybox.js"></script>
+    <link href="/pozdeev/MVC-site/views/_css/product.css" rel="stylesheet">
+    <script src="/pozdeev/MVC-site/vendor/jquery.js"></script>
+    <link href="/pozdeev/MVC-site/vendor/fancybox/fancybox.css" rel="stylesheet">
+    <script src="/pozdeev/MVC-site/vendor/fancybox/fancybox.js"></script>
 
-    <link rel="stylesheet" href="/MVC-site/vendor/fontawesome.css">
+    <link rel="stylesheet" href="/pozdeev/MVC-site/vendor/fontawesome.css">
 </head>
 
 <body>
@@ -25,7 +25,7 @@
                 </a>
             </div>
             <form class="product-details"
-                  action="<?php echo $isCatalog ? '/MVC-site/addToCart' : '/MVC-site/removeToCart'; ?>" method="POST">
+                  action="<?php echo $isCatalog ? '/pozdeev/MVC-site/addToCart' : '/pozdeev/MVC-site/removeToCart'; ?>" method="POST">
                 <div class="product-info">
                     <h1 class="product-title"><?php echo $products[$i]['name']; ?></h1>
                     <div class="product-price"><?php echo $products[$i]['price']; ?></div>
@@ -76,7 +76,7 @@
 </div>
 <script>
     function redirectToRegistration() {
-        window.location.href = '/MVC-site/access';
+        window.location.href = '/pozdeev/MVC-site/access';
     }
 </script>
 <!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->

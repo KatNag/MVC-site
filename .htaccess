@@ -17,7 +17,7 @@ php_flag mysql.trace_mode on
 <IfModule mod_rewrite.c>
     Options -MultiViews
     RewriteEngine On
-    RewriteBase /MVC-site/
+    RewriteBase /pozdeev/MVC-site/
 
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
@@ -25,6 +25,6 @@ php_flag mysql.trace_mode on
 
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^MVC-site/ index.php [L]
+    RewriteRule ^pozdeev/MVC-site/ index.php [L]
 </IfModule>
 

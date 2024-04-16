@@ -51,11 +51,11 @@ class ProfileController
                 'products' => $products,
             ];
 
-            include($_SERVER['DOCUMENT_ROOT'] . '/MVC-site/views/profile/index.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/pozdeev/MVC-site/views/profile/index.php');
             return true;
         } else {
             echo "Необходимо войти";
-            header("Location: /MVC-site/access");
+            header("Location: /pozdeev/MVC-site/access");
             return false;
         }
     }
@@ -78,7 +78,7 @@ class ProfileController
 
             if ($result) {
                 $_SESSION['updateProfile_success'] = true;
-                header("Location: /MVC-site/profile");
+                header("Location: /pozdeev/MVC-site/profile");
                 exit;
             } else {
                 echo "Ошибка при обновлении профиля";

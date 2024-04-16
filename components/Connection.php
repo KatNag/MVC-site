@@ -17,7 +17,15 @@ class Connection
         if (DEBUG_MODE === true) {
             $pdoOpts[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
         }
-        return new PDO("mysql:host=$host;dbname=$db;charset=$charset", $login, $pass, $pdoOpts);
+
+        try {
+            $pdo = new PDO("mysql:host=$host;dbname=$db;charset=$charset", $login, $pass, $pdoOpts);
+            return $pdo;
+        } catch (PDOException $e) {
+            echo "Ошибка подключения к базе данных: " . $e->getMessage();
+        }
     }
 }
+
+
 

@@ -39,7 +39,7 @@ class CatalogController
 
         $sizes = Product::getAllSizes();
 
-        include($_SERVER['DOCUMENT_ROOT'] . '/MVC-site/views/catalog/index.php');
+        include($_SERVER['DOCUMENT_ROOT'] . '/pozdeev/MVC-site/views/catalog/index.php');
         return true;
     }
 
@@ -64,7 +64,7 @@ class CatalogController
             if (!$products) {
                 echo '<script>';
                 echo 'alert("Нет товаров, удовлетворяющих выбранным критериям");';
-                echo 'window.location.href = "/MVC-site/catalog";';
+                echo 'window.location.href = "/pozdeev/MVC-site/catalog";';
                 echo '</script>';
                 return false;
             }
@@ -95,7 +95,7 @@ class CatalogController
 
             $sizes = Product::getAllSizes();
 
-            include($_SERVER['DOCUMENT_ROOT'] . '/MVC-site/views/catalog/index.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/pozdeev/MVC-site/views/catalog/index.php');
             return true;
         }
         return false;
@@ -138,7 +138,7 @@ class CatalogController
             if  ($check)
             {
                 echo 'alert("Товар уже находится в вашей корзине");';
-                echo 'window.location.href = "/MVC-site/catalog";';
+                echo 'window.location.href = "/pozdeev/MVC-site/catalog";';
             }
             // Вызовите метод addToCart, передав productId
             $result = $cart->addToCart($userCartId, $productId, $sizeId);
@@ -147,7 +147,7 @@ class CatalogController
             if ($result) {
                 echo '<script>';
                 echo 'alert("Товар успешно добавлен в корзину");';
-                echo 'window.location.href = "/MVC-site/catalog";';
+                echo 'window.location.href = "/pozdeev/MVC-site/catalog";';
                 echo '</script>';
             } else {
                 echo json_encode(['success' => false, 'error' => 'Ошибка при добавлении товара в корзину']);

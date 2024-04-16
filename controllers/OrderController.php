@@ -19,11 +19,11 @@ class OrderController
 
             $order->addToOrder($userId);
 
-            header("Location: /MVC-site/profile");
+            header("Location: /pozdeev/MVC-site/profile");
             return true;
         } else {
             echo "Необходимо войти";
-            header("Location: /MVC-site/access");
+            header("Location: /pozdeev/MVC-site/access");
             return false;
         }
     }

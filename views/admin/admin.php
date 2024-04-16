@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="/MVC-site/views/_css/access.css" rel="stylesheet">
-    <link href="/MVC-site/views/_css/admin.css" rel="stylesheet">
+    <link href="/pozdeev/MVC-site/views/_css/access.css" rel="stylesheet">
+    <link href="/pozdeev/MVC-site/views/_css/admin.css" rel="stylesheet">
 
-    <script src="/MVC-site/vendor/jquery.js"></script>
-    <script src="/MVC-site/views/_js/adminFormat.js"></script>
-    <script src="/MVC-site/views/_js/genderChoice.js"></script>
-    <script src="/MVC-site/views/_js/files.js"></script>
+    <script src="/pozdeev/MVC-site/vendor/jquery.js"></script>
+    <script src="/pozdeev/MVC-site/views/_js/adminFormat.js"></script>
+    <script src="/pozdeev/MVC-site/views/_js/genderChoice.js"></script>
+    <script src="/pozdeev/MVC-site/views/_js/files.js"></script>
 </head>
 
 <body>
 
 <section>
-    <a href="/MVC-site/catalog">
-        <img src="/MVC-site/public/images/logos/mainLogo.png" alt="logo">
+    <a href="/pozdeev/MVC-site/catalog">
+        <img src="/pozdeev/MVC-site/public/images/logos/mainLogo.png" alt="logo">
         CrossWorld
     </a>
     <div>
-        <form id="add-product-form" action="/MVC-site/addProduct" enctype="multipart/form-data" method="POST">
+        <form id="add-product-form" action="/pozdeev/MVC-site/addProduct" enctype="multipart/form-data" method="POST">
             <h1>Добавить товар</h1>
             <label for="name">Название товара</label>
             <input type="text" name="name" id="name" placeholder="Введите название товара" required maxlength="30">
@@ -45,12 +45,12 @@
             <div class="gender-container">
                 <div class="gender-option female">
                     <input type="radio" name="gender" id="female" value="female">
-                    <img src="/MVC-site/public/images/photos/womanSneaker.jpg" alt="Female">
+                    <img src="/pozdeev/MVC-site/public/images/photos/womanSneaker.jpg" alt="Female">
                     <p>Для женщин</p>
                 </div>
                 <div class="gender-option male">
                     <input type="radio" name="gender" id="male" value="male">
-                    <img src="/MVC-site/public/images/photos/manSneaker.jpg" alt="Male">
+                    <img src="/pozdeev/MVC-site/public/images/photos/manSneaker.jpg" alt="Male">
                     <p>Для мужчин</p>
                 </div>
             </div>

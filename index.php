@@ -8,7 +8,7 @@ if (DEBUG_MODE === true) {
 
 session_start();
 
-define('ROOT', $_SERVER['DOCUMENT_ROOT'] . '/MVC-site');
+define('ROOT', $_SERVER['DOCUMENT_ROOT'] . '/pozdeev/MVC-site');
 
 require_once(ROOT . '/components/autoload.php');
 require_once(ROOT . '/components/Connection.php');

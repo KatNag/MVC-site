@@ -52,7 +52,7 @@ class Access
                 if ($e->getCode() == '23000') { // Код ошибки для нарушения уникальности
                     echo '<script>';
                     echo 'alert("Пользователь с таким email уже зарегистрирован");';
-                    echo 'window.location.href = "/MVC-site/access";';
+                    echo 'window.location.href = "/pozdeev/MVC-site/access";';
                     echo '</script>';
                 } else {
                     echo "Ошибка при выполнении запроса: " . $e->getMessage();

@@ -13,10 +13,10 @@ class AdminController
             $brands = Product::getAllBrands();
             $sizes = Product::getAllSizes();
 
-            include($_SERVER['DOCUMENT_ROOT'] . '/MVC-site/views/admin/index.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/pozdeev/MVC-site/views/admin/index.php');
             return true;
         } else {
-            header("Location: /MVC-site/catalog");
+            header("Location: /pozdeev/MVC-site/catalog");
             echo "<script>alert('Доступ запрещен.');</script>";
             return false;
         }

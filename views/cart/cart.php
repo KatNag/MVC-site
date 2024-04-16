@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <link rel="stylesheet" href="/MVC-site/views/_css/cart.css">
-    <link rel="stylesheet" href="/MVC-site/views/_css/payment.css">
+    <link rel="stylesheet" href="/pozdeev/MVC-site/views/_css/cart.css">
+    <link rel="stylesheet" href="/pozdeev/MVC-site/views/_css/payment.css">
 
-    <script src="/MVC-site/views/_js/paymentModal.js"></script>
-    <script src="/MVC-site/views/_js/paymentFormat.js"></script>
+    <script src="/pozdeev/MVC-site/views/_js/paymentModal.js"></script>
+    <script src="/pozdeev/MVC-site/views/_js/paymentFormat.js"></script>
 </head>
 
 <body>
@@ -27,7 +27,7 @@
 <!-- Модальное окно для формы оплаты -->
 <div id="payment-form" class="modal">
     <div class="container">
-        <form action="/MVC-site/createOrder" method="POST">
+        <form action="/pozdeev/MVC-site/createOrder" method="POST">
             <span class="close close-modal" onclick="closePaymentModal()"></span>
             <div class="row">
                 <div class="col">
@@ -124,7 +124,7 @@
         if (<?php echo isset($_SESSION['login_success']) && $_SESSION['login_success'] === true ? 'true' : 'false'; ?>) {
             openPaymentModal();
         } else {
-            window.location.href = '/MVC-site/access';
+            window.location.href = '/pozdeev/MVC-site/access';
         }
     }
 </script>

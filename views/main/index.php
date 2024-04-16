@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <title><?= $pageTitle ?></title>
-        <link rel="icon" type="image/png" href="/MVC-site/public/images/logos/mainLogo.png">
+        <link rel="icon" type="image/png" href="/pozdeev/MVC-site/public/images/logos/mainLogo.png">
     </head>
     <body>
     <?php include($pageContent['header']); ?>

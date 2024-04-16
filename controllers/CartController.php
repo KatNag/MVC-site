@@ -69,10 +69,10 @@ class CartController
                 'isCatalog' => $isCatalog
             ];
 
-            include($_SERVER['DOCUMENT_ROOT'] . '/MVC-site/views/cart/index.php');
+            include($_SERVER['DOCUMENT_ROOT'] . '/pozdeev/MVC-site/views/cart/index.php');
             return true;
         } else {
-            header("Location: /MVC-site/access");
+            header("Location: /pozdeev/MVC-site/access");
             echo "<script>alert('Необходимо войти');</script>";
             return false;
         }
@@ -84,7 +84,7 @@ class CartController
 
         $productId = $_POST['productId'];
 
-        header("Location: /MVC-site/cart");
+        header("Location: /pozdeev/MVC-site/cart");
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['productId'])) {
             if (!isset($_SESSION['user_id'])) {

@@ -6,7 +6,7 @@ function clearFilters() {
     document.cookie = "sortOptionsValue=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
     // Перезагрузка страницы после очистки фильтров
-    window.location.href = '/MVC-site/catalog';
+    window.location.href = '/pozdeev/MVC-site/catalog';
 }
 
 function saveFilters() {

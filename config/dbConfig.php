@@ -1,7 +1,7 @@
 <?php
 $dbConfig = array(
-    "db_address" => "localhost",
-    "db_name" => "crossworlddb",
-    "db_user" => "admin",
-    "db_pass" => "admin",
+    "db_address" => "94.228.124.234",
+    "db_name" => "pmi_nee",
+    "db_user" => "pmi_nee",
+    "db_pass" => "s94u5bfP!",
 );

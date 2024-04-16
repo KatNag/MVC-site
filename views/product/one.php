@@ -3,19 +3,19 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <link href="/MVC-site/views/_css/product.css" rel="stylesheet">
-    <script src="/MVC-site/vendor/jquery.js"></script>
-    <link href="/MVC-site/vendor/fancybox/fancybox.css" rel="stylesheet">
-    <script src="/MVC-site/vendor/fancybox/fancybox.js"></script>
-    <link rel="stylesheet" href="/MVC-site/vendor/fontawesome.css">
+    <link href="/pozdeev/MVC-site/views/_css/product.css" rel="stylesheet">
+    <script src="/pozdeev/MVC-site/vendor/jquery.js"></script>
+    <link href="/pozdeev/MVC-site/vendor/fancybox/fancybox.css" rel="stylesheet">
+    <script src="/pozdeev/MVC-site/vendor/fancybox/fancybox.js"></script>
+    <link rel="stylesheet" href="/pozdeev/MVC-site/vendor/fontawesome.css">
 </head>
 
 <body>
 <div class="product-container" style="display: none;">
     <div class="product-image">
-        <a data-fancybox="gallery" data-src="/MVC-site/public/images/photos/testProduct.webp">
+        <a data-fancybox="gallery" data-src="/pozdeev/MVC-site/public/images/photos/testProduct.webp">
             <img alt="Лучшие кроссы" class="image" loading="lazy"
-                 src="/MVC-site/public/images/photos/testProduct.webp"/>
+                 src="/pozdeev/MVC-site/public/images/photos/testProduct.webp"/>
         </a>
     </div>
     <form class="product-details">
