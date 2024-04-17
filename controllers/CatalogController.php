@@ -59,6 +59,10 @@ class CatalogController
                 $sort = 2;
             }
 
+            if (!$price) {
+                $price = 0;
+            }
+
             $products = Catalog::sortProducts($gender, $price, $size, $sort);
 
             if (!$products) {

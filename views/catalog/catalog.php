@@ -30,7 +30,7 @@
         <div class=" filter-group">
             <label for="size-filter">Размер:</label>
             <select id="size-filter" name="size-filter">
-                <option value="all">Все</option>
+                <option value="0">Все</option>
                 <?php foreach ($sizes as $size): ?>
                     <option value="<?php echo $size['id']; ?>">
                         <?php echo $size['scale']; ?>

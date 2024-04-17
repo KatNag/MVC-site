@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/pozdeev/MVC-site.iml" filepath="$PROJECT_DIR$/.idea/pozdeev/MVC-site.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/MVC-site.iml" filepath="$PROJECT_DIR$/.idea/MVC-site.iml" />
     </modules>
   </component>
 </project>
